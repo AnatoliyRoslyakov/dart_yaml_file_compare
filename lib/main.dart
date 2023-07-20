@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
 
             BlocProvider<ValueBloc>(
               create: (context) =>
-                  ValueBloc()..add(const ValueEvent.create('', '', '', false)),
+                  ValueBloc()..add(const ValueEvent.create('', '', '',)),
             ),
           ],
           child: const HomePage(),

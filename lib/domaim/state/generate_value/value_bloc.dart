@@ -1,6 +1,6 @@
 import 'package:app_yaml_compare/ui/theme/app_colors.dart';
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:yaml/yaml.dart';
 
@@ -11,8 +11,8 @@ part 'value_bloc.freezed.dart';
 class ValueEvent with _$ValueEvent {
  const ValueEvent._();
 
- const factory ValueEvent.create(String file1, String file2, String keyIndex, bool switchColor) = CreateValueEvent;
-
+ const factory ValueEvent.create(String file1, String file2, String keyIndex) = CreateValueEvent;
+ const factory ValueEvent.switchColor() = SwitchValueEvent;
 
 }
 
@@ -25,7 +25,13 @@ class ValueState with _$ValueState {
 
 class ValueBloc extends Bloc<ValueEvent, ValueState> {
  ValueBloc() : super( const ValueState.initial([],[],[], [], '', '', false, '')){
- on<CreateValueEvent>(_create); 
+ on<CreateValueEvent>(_create);
+  on<SwitchValueEvent>(_switchColor);
+
+}
+
+ Future<void> _switchColor(SwitchValueEvent event, Emitter<ValueState> emit) async { 
+  emit(state.copyWith(switchColor: !state.switchColor));
 }
 
  Future<void> _create(CreateValueEvent event, Emitter<ValueState> emit) async {
@@ -44,7 +50,7 @@ List<String> lines2 = str2.split('\n');
 List<Color> colorList1 = [];
 List<Color> colorList2 = [];
 
-if(!event.switchColor){
+if(state.switchColor){
   for(var it in lines1){
     if(lines2.contains(it)){
       colorList1.add(const Color.fromARGB(0, 0, 0, 0));
@@ -57,10 +63,8 @@ if(!event.switchColor){
   }
   emit(state.copyWith(lines1: lines1, lines2: lines2, colorList1: colorList1, colorList2: colorList2, switchColor: true, keyIndex: event.keyIndex));
   return;
-}
-
-
-emit(state.copyWith(value1: writer.write({event.keyIndex:value1}), value2: writer.write({event.keyIndex:value2}), switchColor: false));
+ }
+emit(state.copyWith(value1: writer.write({event.keyIndex:value1}), value2: writer.write({event.keyIndex:value2}), ));
  }
 
 

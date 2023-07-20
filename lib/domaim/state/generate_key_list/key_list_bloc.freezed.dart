@@ -112,7 +112,8 @@ class __$$CreateKeyListEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CreateKeyListEvent extends CreateKeyListEvent {
+class _$CreateKeyListEvent extends CreateKeyListEvent
+    with DiagnosticableTreeMixin {
   const _$CreateKeyListEvent(this.file1, this.file2) : super._();
 
   @override
@@ -121,8 +122,17 @@ class _$CreateKeyListEvent extends CreateKeyListEvent {
   final String file2;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'KeyListEvent.create(file1: $file1, file2: $file2)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'KeyListEvent.create'))
+      ..add(DiagnosticsProperty('file1', file1))
+      ..add(DiagnosticsProperty('file2', file2));
   }
 
   @override
@@ -252,15 +262,24 @@ class __$$PressKeyListEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PressKeyListEvent extends PressKeyListEvent {
+class _$PressKeyListEvent extends PressKeyListEvent
+    with DiagnosticableTreeMixin {
   const _$PressKeyListEvent(this.index) : super._();
 
   @override
   final int index;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'KeyListEvent.press(index: $index)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'KeyListEvent.press'))
+      ..add(DiagnosticsProperty('index', index));
   }
 
   @override
@@ -509,7 +528,8 @@ class __$$InitialKeyListStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialKeyListState extends InitialKeyListState {
+class _$InitialKeyListState extends InitialKeyListState
+    with DiagnosticableTreeMixin {
   const _$InitialKeyListState(
       final List<dynamic> keyList,
       final List<dynamic> colorList,
@@ -547,8 +567,19 @@ class _$InitialKeyListState extends InitialKeyListState {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'KeyListState.initial(keyList: $keyList, colorList: $colorList, title: $title, newColorList: $newColorList)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'KeyListState.initial'))
+      ..add(DiagnosticsProperty('keyList', keyList))
+      ..add(DiagnosticsProperty('colorList', colorList))
+      ..add(DiagnosticsProperty('title', title))
+      ..add(DiagnosticsProperty('newColorList', newColorList));
   }
 
   @override

@@ -21,7 +21,7 @@ class YamlWriter {
     } else if (yaml is Map) {
       str += _writeMap(yaml, indent: indent);
     } else if (yaml is String) {
-      str += "${yaml.replaceAll("\"", "\\\"")}";
+      str += yaml.replaceAll("\"", "\\\"");
     } else {
       str += yaml.toString();
     }
