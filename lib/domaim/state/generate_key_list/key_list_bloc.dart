@@ -13,8 +13,7 @@ class KeyListEvent with _$KeyListEvent {
   const factory KeyListEvent.create(String file1, String file2) =
       CreateKeyListEvent;
 
-  const factory KeyListEvent.press(int index) =
-      PressKeyListEvent;
+  const factory KeyListEvent.press(int index) = PressKeyListEvent;
 }
 
 @freezed
@@ -22,7 +21,8 @@ class KeyListState with _$KeyListState {
   const KeyListState._();
 
   const factory KeyListState.initial(
-      List keyList, List colorList, String title, List newColorList) = InitialKeyListState;
+          List keyList, List colorList, String title, List newColorList) =
+      InitialKeyListState;
 }
 
 class KeyListBloc extends Bloc<KeyListEvent, KeyListState> {
@@ -83,15 +83,18 @@ class KeyListBloc extends Bloc<KeyListEvent, KeyListState> {
         }
       }
       emit(
-        state.copyWith(keyList: baseLIstKey, colorList: baseLIstColor, newColorList: baseLIstColor),
+        state.copyWith(
+            keyList: baseLIstKey,
+            colorList: baseLIstColor,
+            newColorList: baseLIstColor),
       );
     } else {}
   }
 
   Future<void> _press(
       PressKeyListEvent event, Emitter<KeyListState> emit) async {
-      List newListColor=List.from(state.colorList);
-      newListColor[event.index] = AppColors.mainElement;
-        emit(state.copyWith(newColorList: newListColor));
-      }
+    List newListColor = List.from(state.colorList);
+    newListColor[event.index] = AppColors.mainElement;
+    emit(state.copyWith(newColorList: newListColor));
+  }
 }

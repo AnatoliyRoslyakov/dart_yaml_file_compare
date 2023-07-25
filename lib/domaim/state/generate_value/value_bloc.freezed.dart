@@ -16,44 +16,45 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ValueEvent {
+  String get file1 => throw _privateConstructorUsedError;
+  String get file2 => throw _privateConstructorUsedError;
+  String get keyIndex => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String file1, String file2, String keyIndex)
         create,
-    required TResult Function() switchColor,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String file1, String file2, String keyIndex)? create,
-    TResult? Function()? switchColor,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String file1, String file2, String keyIndex)? create,
-    TResult Function()? switchColor,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(CreateValueEvent value) create,
-    required TResult Function(SwitchValueEvent value) switchColor,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CreateValueEvent value)? create,
-    TResult? Function(SwitchValueEvent value)? switchColor,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CreateValueEvent value)? create,
-    TResult Function(SwitchValueEvent value)? switchColor,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ValueEventCopyWith<ValueEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -62,6 +63,8 @@ abstract class $ValueEventCopyWith<$Res> {
   factory $ValueEventCopyWith(
           ValueEvent value, $Res Function(ValueEvent) then) =
       _$ValueEventCopyWithImpl<$Res, ValueEvent>;
+  @useResult
+  $Res call({String file1, String file2, String keyIndex});
 }
 
 /// @nodoc
@@ -73,13 +76,38 @@ class _$ValueEventCopyWithImpl<$Res, $Val extends ValueEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? file1 = null,
+    Object? file2 = null,
+    Object? keyIndex = null,
+  }) {
+    return _then(_value.copyWith(
+      file1: null == file1
+          ? _value.file1
+          : file1 // ignore: cast_nullable_to_non_nullable
+              as String,
+      file2: null == file2
+          ? _value.file2
+          : file2 // ignore: cast_nullable_to_non_nullable
+              as String,
+      keyIndex: null == keyIndex
+          ? _value.keyIndex
+          : keyIndex // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$CreateValueEventCopyWith<$Res> {
+abstract class _$$CreateValueEventCopyWith<$Res>
+    implements $ValueEventCopyWith<$Res> {
   factory _$$CreateValueEventCopyWith(
           _$CreateValueEvent value, $Res Function(_$CreateValueEvent) then) =
       __$$CreateValueEventCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call({String file1, String file2, String keyIndex});
 }
@@ -118,7 +146,7 @@ class __$$CreateValueEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CreateValueEvent extends CreateValueEvent {
+class _$CreateValueEvent extends CreateValueEvent with DiagnosticableTreeMixin {
   const _$CreateValueEvent(this.file1, this.file2, this.keyIndex) : super._();
 
   @override
@@ -129,8 +157,18 @@ class _$CreateValueEvent extends CreateValueEvent {
   final String keyIndex;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ValueEvent.create(file1: $file1, file2: $file2, keyIndex: $keyIndex)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ValueEvent.create'))
+      ..add(DiagnosticsProperty('file1', file1))
+      ..add(DiagnosticsProperty('file2', file2))
+      ..add(DiagnosticsProperty('keyIndex', keyIndex));
   }
 
   @override
@@ -158,7 +196,6 @@ class _$CreateValueEvent extends CreateValueEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String file1, String file2, String keyIndex)
         create,
-    required TResult Function() switchColor,
   }) {
     return create(file1, file2, keyIndex);
   }
@@ -167,7 +204,6 @@ class _$CreateValueEvent extends CreateValueEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String file1, String file2, String keyIndex)? create,
-    TResult? Function()? switchColor,
   }) {
     return create?.call(file1, file2, keyIndex);
   }
@@ -176,7 +212,6 @@ class _$CreateValueEvent extends CreateValueEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String file1, String file2, String keyIndex)? create,
-    TResult Function()? switchColor,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -189,7 +224,6 @@ class _$CreateValueEvent extends CreateValueEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(CreateValueEvent value) create,
-    required TResult Function(SwitchValueEvent value) switchColor,
   }) {
     return create(this);
   }
@@ -198,7 +232,6 @@ class _$CreateValueEvent extends CreateValueEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CreateValueEvent value)? create,
-    TResult? Function(SwitchValueEvent value)? switchColor,
   }) {
     return create?.call(this);
   }
@@ -207,7 +240,6 @@ class _$CreateValueEvent extends CreateValueEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CreateValueEvent value)? create,
-    TResult Function(SwitchValueEvent value)? switchColor,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -223,116 +255,16 @@ abstract class CreateValueEvent extends ValueEvent {
       _$CreateValueEvent;
   const CreateValueEvent._() : super._();
 
+  @override
   String get file1;
+  @override
   String get file2;
+  @override
   String get keyIndex;
+  @override
   @JsonKey(ignore: true)
   _$$CreateValueEventCopyWith<_$CreateValueEvent> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$SwitchValueEventCopyWith<$Res> {
-  factory _$$SwitchValueEventCopyWith(
-          _$SwitchValueEvent value, $Res Function(_$SwitchValueEvent) then) =
-      __$$SwitchValueEventCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$SwitchValueEventCopyWithImpl<$Res>
-    extends _$ValueEventCopyWithImpl<$Res, _$SwitchValueEvent>
-    implements _$$SwitchValueEventCopyWith<$Res> {
-  __$$SwitchValueEventCopyWithImpl(
-      _$SwitchValueEvent _value, $Res Function(_$SwitchValueEvent) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$SwitchValueEvent extends SwitchValueEvent {
-  const _$SwitchValueEvent() : super._();
-
-  @override
-  String toString() {
-    return 'ValueEvent.switchColor()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SwitchValueEvent);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String file1, String file2, String keyIndex)
-        create,
-    required TResult Function() switchColor,
-  }) {
-    return switchColor();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String file1, String file2, String keyIndex)? create,
-    TResult? Function()? switchColor,
-  }) {
-    return switchColor?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String file1, String file2, String keyIndex)? create,
-    TResult Function()? switchColor,
-    required TResult orElse(),
-  }) {
-    if (switchColor != null) {
-      return switchColor();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(CreateValueEvent value) create,
-    required TResult Function(SwitchValueEvent value) switchColor,
-  }) {
-    return switchColor(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CreateValueEvent value)? create,
-    TResult? Function(SwitchValueEvent value)? switchColor,
-  }) {
-    return switchColor?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(CreateValueEvent value)? create,
-    TResult Function(SwitchValueEvent value)? switchColor,
-    required TResult orElse(),
-  }) {
-    if (switchColor != null) {
-      return switchColor(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SwitchValueEvent extends ValueEvent {
-  const factory SwitchValueEvent() = _$SwitchValueEvent;
-  const SwitchValueEvent._() : super._();
 }
 
 /// @nodoc
@@ -343,7 +275,6 @@ mixin _$ValueState {
   List<Color> get colorList2 => throw _privateConstructorUsedError;
   String get value1 => throw _privateConstructorUsedError;
   String get value2 => throw _privateConstructorUsedError;
-  bool get switchColor => throw _privateConstructorUsedError;
   String get keyIndex => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -354,7 +285,6 @@ mixin _$ValueState {
             List<Color> colorList2,
             String value1,
             String value2,
-            bool switchColor,
             String keyIndex)
         initial,
   }) =>
@@ -368,7 +298,6 @@ mixin _$ValueState {
             List<Color> colorList2,
             String value1,
             String value2,
-            bool switchColor,
             String keyIndex)?
         initial,
   }) =>
@@ -382,7 +311,6 @@ mixin _$ValueState {
             List<Color> colorList2,
             String value1,
             String value2,
-            bool switchColor,
             String keyIndex)?
         initial,
     required TResult orElse(),
@@ -423,7 +351,6 @@ abstract class $ValueStateCopyWith<$Res> {
       List<Color> colorList2,
       String value1,
       String value2,
-      bool switchColor,
       String keyIndex});
 }
 
@@ -446,7 +373,6 @@ class _$ValueStateCopyWithImpl<$Res, $Val extends ValueState>
     Object? colorList2 = null,
     Object? value1 = null,
     Object? value2 = null,
-    Object? switchColor = null,
     Object? keyIndex = null,
   }) {
     return _then(_value.copyWith(
@@ -474,10 +400,6 @@ class _$ValueStateCopyWithImpl<$Res, $Val extends ValueState>
           ? _value.value2
           : value2 // ignore: cast_nullable_to_non_nullable
               as String,
-      switchColor: null == switchColor
-          ? _value.switchColor
-          : switchColor // ignore: cast_nullable_to_non_nullable
-              as bool,
       keyIndex: null == keyIndex
           ? _value.keyIndex
           : keyIndex // ignore: cast_nullable_to_non_nullable
@@ -501,7 +423,6 @@ abstract class _$$InitialValueStateCopyWith<$Res>
       List<Color> colorList2,
       String value1,
       String value2,
-      bool switchColor,
       String keyIndex});
 }
 
@@ -522,7 +443,6 @@ class __$$InitialValueStateCopyWithImpl<$Res>
     Object? colorList2 = null,
     Object? value1 = null,
     Object? value2 = null,
-    Object? switchColor = null,
     Object? keyIndex = null,
   }) {
     return _then(_$InitialValueState(
@@ -550,10 +470,6 @@ class __$$InitialValueStateCopyWithImpl<$Res>
           ? _value.value2
           : value2 // ignore: cast_nullable_to_non_nullable
               as String,
-      null == switchColor
-          ? _value.switchColor
-          : switchColor // ignore: cast_nullable_to_non_nullable
-              as bool,
       null == keyIndex
           ? _value.keyIndex
           : keyIndex // ignore: cast_nullable_to_non_nullable
@@ -564,7 +480,8 @@ class __$$InitialValueStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialValueState extends InitialValueState {
+class _$InitialValueState extends InitialValueState
+    with DiagnosticableTreeMixin {
   const _$InitialValueState(
       final List<String> lines1,
       final List<String> lines2,
@@ -572,7 +489,6 @@ class _$InitialValueState extends InitialValueState {
       final List<Color> colorList2,
       this.value1,
       this.value2,
-      this.switchColor,
       this.keyIndex)
       : _lines1 = lines1,
         _lines2 = lines2,
@@ -617,13 +533,25 @@ class _$InitialValueState extends InitialValueState {
   @override
   final String value2;
   @override
-  final bool switchColor;
-  @override
   final String keyIndex;
 
   @override
-  String toString() {
-    return 'ValueState.initial(lines1: $lines1, lines2: $lines2, colorList1: $colorList1, colorList2: $colorList2, value1: $value1, value2: $value2, switchColor: $switchColor, keyIndex: $keyIndex)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ValueState.initial(lines1: $lines1, lines2: $lines2, colorList1: $colorList1, colorList2: $colorList2, value1: $value1, value2: $value2, keyIndex: $keyIndex)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ValueState.initial'))
+      ..add(DiagnosticsProperty('lines1', lines1))
+      ..add(DiagnosticsProperty('lines2', lines2))
+      ..add(DiagnosticsProperty('colorList1', colorList1))
+      ..add(DiagnosticsProperty('colorList2', colorList2))
+      ..add(DiagnosticsProperty('value1', value1))
+      ..add(DiagnosticsProperty('value2', value2))
+      ..add(DiagnosticsProperty('keyIndex', keyIndex));
   }
 
   @override
@@ -639,8 +567,6 @@ class _$InitialValueState extends InitialValueState {
                 .equals(other._colorList2, _colorList2) &&
             (identical(other.value1, value1) || other.value1 == value1) &&
             (identical(other.value2, value2) || other.value2 == value2) &&
-            (identical(other.switchColor, switchColor) ||
-                other.switchColor == switchColor) &&
             (identical(other.keyIndex, keyIndex) ||
                 other.keyIndex == keyIndex));
   }
@@ -654,7 +580,6 @@ class _$InitialValueState extends InitialValueState {
       const DeepCollectionEquality().hash(_colorList2),
       value1,
       value2,
-      switchColor,
       keyIndex);
 
   @JsonKey(ignore: true)
@@ -673,12 +598,11 @@ class _$InitialValueState extends InitialValueState {
             List<Color> colorList2,
             String value1,
             String value2,
-            bool switchColor,
             String keyIndex)
         initial,
   }) {
-    return initial(lines1, lines2, colorList1, colorList2, value1, value2,
-        switchColor, keyIndex);
+    return initial(
+        lines1, lines2, colorList1, colorList2, value1, value2, keyIndex);
   }
 
   @override
@@ -691,12 +615,11 @@ class _$InitialValueState extends InitialValueState {
             List<Color> colorList2,
             String value1,
             String value2,
-            bool switchColor,
             String keyIndex)?
         initial,
   }) {
-    return initial?.call(lines1, lines2, colorList1, colorList2, value1, value2,
-        switchColor, keyIndex);
+    return initial?.call(
+        lines1, lines2, colorList1, colorList2, value1, value2, keyIndex);
   }
 
   @override
@@ -709,14 +632,13 @@ class _$InitialValueState extends InitialValueState {
             List<Color> colorList2,
             String value1,
             String value2,
-            bool switchColor,
             String keyIndex)?
         initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(lines1, lines2, colorList1, colorList2, value1, value2,
-          switchColor, keyIndex);
+      return initial(
+          lines1, lines2, colorList1, colorList2, value1, value2, keyIndex);
     }
     return orElse();
   }
@@ -758,7 +680,6 @@ abstract class InitialValueState extends ValueState {
       final List<Color> colorList2,
       final String value1,
       final String value2,
-      final bool switchColor,
       final String keyIndex) = _$InitialValueState;
   const InitialValueState._() : super._();
 
@@ -774,8 +695,6 @@ abstract class InitialValueState extends ValueState {
   String get value1;
   @override
   String get value2;
-  @override
-  bool get switchColor;
   @override
   String get keyIndex;
   @override
