@@ -12,21 +12,24 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
     return BlocBuilder<UploadFileBloc, UploadFileState>(
         builder: (context, state) {
       return Scaffold(
           body: Center(
         child: Container(
+      width: screenSize.width * 0.95, 
+      height: screenSize.height * 0.95,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               border: Border.all(color: AppColors.mainElement)),
-          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+          // margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
                 SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
+                  scrollDirection: Axis.horizontal,
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -59,19 +62,15 @@ class HomePage extends StatelessWidget {
                               backgroundColor: AppColors.secondaryElement,
                               borderColor: AppColors.mainElement,
                               child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  ConstrainedBox(
-                                      constraints: const BoxConstraints(
-                                          maxWidth: 90, minWidth: 90),
-                                      child: Text(
-                                        state.fileName1,
-                                        style: const TextStyle(
-                                            color: AppColors.mainElement),
-                                        overflow: TextOverflow.ellipsis,
-                                      )),
-                                  const SizedBox(
-                                    width: 10,
+                                  Text(
+                                    state.fileName1,
+                                    style: const TextStyle(
+                                        color: AppColors.mainElement),
+                                    overflow: TextOverflow.ellipsis,
                                   ),
+                         
                                   const Icon(
                                     Icons.delete_rounded,
                                     color: Colors.red,
