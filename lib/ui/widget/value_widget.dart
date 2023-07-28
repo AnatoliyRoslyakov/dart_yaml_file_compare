@@ -43,38 +43,41 @@ class ContentContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(minWidth: 250, maxWidth: 750),
-      child: Container(
-          width: 350,
-          height: double.infinity,
-          margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: AppColors.mainElement)),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Text(
-                    value,
-                    style: const TextStyle(
-                        color: AppColors.mainElement,
-                        fontWeight: FontWeight.bold),
-                  ),
+    final Size screenSize = MediaQuery.of(context).size;
+    return Container(
+      width: screenSize.width*0.35, 
+    height: screenSize.height,
+        // width: 350,
+        // height: double.infinity,
+        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: AppColors.mainElement)),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Text(
+                  value,
+                  style: const TextStyle(
+                      color: AppColors.mainElement,
+                      fontWeight: FontWeight.bold),
                 ),
-                const Divider(),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: lines.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(1.0),
-                        child: Container(
-                            color: color[index],
+              ),
+             const Divider(),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: lines.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(1.0),
+                      child: Container(
+                          color: color[index],
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
                             child: Row(
                               children: [
                                 const SizedBox(
@@ -98,14 +101,14 @@ class ContentContainer extends StatelessWidget {
                                   ),
                                 ),
                               ],
-                            )),
-                      );
-                    },
-                  ),
+                            ),
+                          )),
+                    );
+                  },
                 ),
-              ],
-            ),
-          )),
-    );
+              ),
+            ],
+          ),
+        ));
   }
 }
