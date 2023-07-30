@@ -39,10 +39,16 @@ class KeyListBloc extends Bloc<KeyListEvent, KeyListState> {
 
     try {
       loadYaml(event.file1.toString());
+    } catch (e) {
+      emit(state.copyWith(title: 'File left: $e', keyList: [], colorList: []));
+    }
+
+      try {
       loadYaml(event.file2.toString());
     } catch (e) {
-      emit(state.copyWith(title: e.toString(), keyList: [], colorList: []));
+      emit(state.copyWith(title: 'File right: $e', keyList: [], colorList: []));
     }
+
     Map fileMap1 = loadYaml(event.file1.toString());
     Map fileMap2 = loadYaml(event.file2.toString());
 

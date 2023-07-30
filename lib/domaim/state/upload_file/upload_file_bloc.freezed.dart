@@ -23,6 +23,7 @@ mixin _$UploadFileEvent {
     required TResult Function() init1,
     required TResult Function() load2,
     required TResult Function() init2,
+    required TResult Function() success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$UploadFileEvent {
     TResult? Function()? init1,
     TResult? Function()? load2,
     TResult? Function()? init2,
+    TResult? Function()? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$UploadFileEvent {
     TResult Function()? init1,
     TResult Function()? load2,
     TResult Function()? init2,
+    TResult Function()? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +54,7 @@ mixin _$UploadFileEvent {
     required TResult Function(InitUploadFileEvent1 value) init1,
     required TResult Function(LoadUploadFileEvent2 value) load2,
     required TResult Function(InitUploadFileEvent2 value) init2,
+    required TResult Function(SuccessUploadFileEvent value) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +64,7 @@ mixin _$UploadFileEvent {
     TResult? Function(InitUploadFileEvent1 value)? init1,
     TResult? Function(LoadUploadFileEvent2 value)? load2,
     TResult? Function(InitUploadFileEvent2 value)? init2,
+    TResult? Function(SuccessUploadFileEvent value)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +74,7 @@ mixin _$UploadFileEvent {
     TResult Function(InitUploadFileEvent1 value)? init1,
     TResult Function(LoadUploadFileEvent2 value)? load2,
     TResult Function(InitUploadFileEvent2 value)? init2,
+    TResult Function(SuccessUploadFileEvent value)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -135,6 +141,7 @@ class _$InitUploadFileEvent extends InitUploadFileEvent {
     required TResult Function() init1,
     required TResult Function() load2,
     required TResult Function() init2,
+    required TResult Function() success,
   }) {
     return init();
   }
@@ -147,6 +154,7 @@ class _$InitUploadFileEvent extends InitUploadFileEvent {
     TResult? Function()? init1,
     TResult? Function()? load2,
     TResult? Function()? init2,
+    TResult? Function()? success,
   }) {
     return init?.call();
   }
@@ -159,6 +167,7 @@ class _$InitUploadFileEvent extends InitUploadFileEvent {
     TResult Function()? init1,
     TResult Function()? load2,
     TResult Function()? init2,
+    TResult Function()? success,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -175,6 +184,7 @@ class _$InitUploadFileEvent extends InitUploadFileEvent {
     required TResult Function(InitUploadFileEvent1 value) init1,
     required TResult Function(LoadUploadFileEvent2 value) load2,
     required TResult Function(InitUploadFileEvent2 value) init2,
+    required TResult Function(SuccessUploadFileEvent value) success,
   }) {
     return init(this);
   }
@@ -187,6 +197,7 @@ class _$InitUploadFileEvent extends InitUploadFileEvent {
     TResult? Function(InitUploadFileEvent1 value)? init1,
     TResult? Function(LoadUploadFileEvent2 value)? load2,
     TResult? Function(InitUploadFileEvent2 value)? init2,
+    TResult? Function(SuccessUploadFileEvent value)? success,
   }) {
     return init?.call(this);
   }
@@ -199,6 +210,7 @@ class _$InitUploadFileEvent extends InitUploadFileEvent {
     TResult Function(InitUploadFileEvent1 value)? init1,
     TResult Function(LoadUploadFileEvent2 value)? load2,
     TResult Function(InitUploadFileEvent2 value)? init2,
+    TResult Function(SuccessUploadFileEvent value)? success,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -256,6 +268,7 @@ class _$LoadUploadFileEvent1 extends LoadUploadFileEvent1 {
     required TResult Function() init1,
     required TResult Function() load2,
     required TResult Function() init2,
+    required TResult Function() success,
   }) {
     return load1();
   }
@@ -268,6 +281,7 @@ class _$LoadUploadFileEvent1 extends LoadUploadFileEvent1 {
     TResult? Function()? init1,
     TResult? Function()? load2,
     TResult? Function()? init2,
+    TResult? Function()? success,
   }) {
     return load1?.call();
   }
@@ -280,6 +294,7 @@ class _$LoadUploadFileEvent1 extends LoadUploadFileEvent1 {
     TResult Function()? init1,
     TResult Function()? load2,
     TResult Function()? init2,
+    TResult Function()? success,
     required TResult orElse(),
   }) {
     if (load1 != null) {
@@ -296,6 +311,7 @@ class _$LoadUploadFileEvent1 extends LoadUploadFileEvent1 {
     required TResult Function(InitUploadFileEvent1 value) init1,
     required TResult Function(LoadUploadFileEvent2 value) load2,
     required TResult Function(InitUploadFileEvent2 value) init2,
+    required TResult Function(SuccessUploadFileEvent value) success,
   }) {
     return load1(this);
   }
@@ -308,6 +324,7 @@ class _$LoadUploadFileEvent1 extends LoadUploadFileEvent1 {
     TResult? Function(InitUploadFileEvent1 value)? init1,
     TResult? Function(LoadUploadFileEvent2 value)? load2,
     TResult? Function(InitUploadFileEvent2 value)? init2,
+    TResult? Function(SuccessUploadFileEvent value)? success,
   }) {
     return load1?.call(this);
   }
@@ -320,6 +337,7 @@ class _$LoadUploadFileEvent1 extends LoadUploadFileEvent1 {
     TResult Function(InitUploadFileEvent1 value)? init1,
     TResult Function(LoadUploadFileEvent2 value)? load2,
     TResult Function(InitUploadFileEvent2 value)? init2,
+    TResult Function(SuccessUploadFileEvent value)? success,
     required TResult orElse(),
   }) {
     if (load1 != null) {
@@ -377,6 +395,7 @@ class _$InitUploadFileEvent1 extends InitUploadFileEvent1 {
     required TResult Function() init1,
     required TResult Function() load2,
     required TResult Function() init2,
+    required TResult Function() success,
   }) {
     return init1();
   }
@@ -389,6 +408,7 @@ class _$InitUploadFileEvent1 extends InitUploadFileEvent1 {
     TResult? Function()? init1,
     TResult? Function()? load2,
     TResult? Function()? init2,
+    TResult? Function()? success,
   }) {
     return init1?.call();
   }
@@ -401,6 +421,7 @@ class _$InitUploadFileEvent1 extends InitUploadFileEvent1 {
     TResult Function()? init1,
     TResult Function()? load2,
     TResult Function()? init2,
+    TResult Function()? success,
     required TResult orElse(),
   }) {
     if (init1 != null) {
@@ -417,6 +438,7 @@ class _$InitUploadFileEvent1 extends InitUploadFileEvent1 {
     required TResult Function(InitUploadFileEvent1 value) init1,
     required TResult Function(LoadUploadFileEvent2 value) load2,
     required TResult Function(InitUploadFileEvent2 value) init2,
+    required TResult Function(SuccessUploadFileEvent value) success,
   }) {
     return init1(this);
   }
@@ -429,6 +451,7 @@ class _$InitUploadFileEvent1 extends InitUploadFileEvent1 {
     TResult? Function(InitUploadFileEvent1 value)? init1,
     TResult? Function(LoadUploadFileEvent2 value)? load2,
     TResult? Function(InitUploadFileEvent2 value)? init2,
+    TResult? Function(SuccessUploadFileEvent value)? success,
   }) {
     return init1?.call(this);
   }
@@ -441,6 +464,7 @@ class _$InitUploadFileEvent1 extends InitUploadFileEvent1 {
     TResult Function(InitUploadFileEvent1 value)? init1,
     TResult Function(LoadUploadFileEvent2 value)? load2,
     TResult Function(InitUploadFileEvent2 value)? init2,
+    TResult Function(SuccessUploadFileEvent value)? success,
     required TResult orElse(),
   }) {
     if (init1 != null) {
@@ -498,6 +522,7 @@ class _$LoadUploadFileEvent2 extends LoadUploadFileEvent2 {
     required TResult Function() init1,
     required TResult Function() load2,
     required TResult Function() init2,
+    required TResult Function() success,
   }) {
     return load2();
   }
@@ -510,6 +535,7 @@ class _$LoadUploadFileEvent2 extends LoadUploadFileEvent2 {
     TResult? Function()? init1,
     TResult? Function()? load2,
     TResult? Function()? init2,
+    TResult? Function()? success,
   }) {
     return load2?.call();
   }
@@ -522,6 +548,7 @@ class _$LoadUploadFileEvent2 extends LoadUploadFileEvent2 {
     TResult Function()? init1,
     TResult Function()? load2,
     TResult Function()? init2,
+    TResult Function()? success,
     required TResult orElse(),
   }) {
     if (load2 != null) {
@@ -538,6 +565,7 @@ class _$LoadUploadFileEvent2 extends LoadUploadFileEvent2 {
     required TResult Function(InitUploadFileEvent1 value) init1,
     required TResult Function(LoadUploadFileEvent2 value) load2,
     required TResult Function(InitUploadFileEvent2 value) init2,
+    required TResult Function(SuccessUploadFileEvent value) success,
   }) {
     return load2(this);
   }
@@ -550,6 +578,7 @@ class _$LoadUploadFileEvent2 extends LoadUploadFileEvent2 {
     TResult? Function(InitUploadFileEvent1 value)? init1,
     TResult? Function(LoadUploadFileEvent2 value)? load2,
     TResult? Function(InitUploadFileEvent2 value)? init2,
+    TResult? Function(SuccessUploadFileEvent value)? success,
   }) {
     return load2?.call(this);
   }
@@ -562,6 +591,7 @@ class _$LoadUploadFileEvent2 extends LoadUploadFileEvent2 {
     TResult Function(InitUploadFileEvent1 value)? init1,
     TResult Function(LoadUploadFileEvent2 value)? load2,
     TResult Function(InitUploadFileEvent2 value)? init2,
+    TResult Function(SuccessUploadFileEvent value)? success,
     required TResult orElse(),
   }) {
     if (load2 != null) {
@@ -619,6 +649,7 @@ class _$InitUploadFileEvent2 extends InitUploadFileEvent2 {
     required TResult Function() init1,
     required TResult Function() load2,
     required TResult Function() init2,
+    required TResult Function() success,
   }) {
     return init2();
   }
@@ -631,6 +662,7 @@ class _$InitUploadFileEvent2 extends InitUploadFileEvent2 {
     TResult? Function()? init1,
     TResult? Function()? load2,
     TResult? Function()? init2,
+    TResult? Function()? success,
   }) {
     return init2?.call();
   }
@@ -643,6 +675,7 @@ class _$InitUploadFileEvent2 extends InitUploadFileEvent2 {
     TResult Function()? init1,
     TResult Function()? load2,
     TResult Function()? init2,
+    TResult Function()? success,
     required TResult orElse(),
   }) {
     if (init2 != null) {
@@ -659,6 +692,7 @@ class _$InitUploadFileEvent2 extends InitUploadFileEvent2 {
     required TResult Function(InitUploadFileEvent1 value) init1,
     required TResult Function(LoadUploadFileEvent2 value) load2,
     required TResult Function(InitUploadFileEvent2 value) init2,
+    required TResult Function(SuccessUploadFileEvent value) success,
   }) {
     return init2(this);
   }
@@ -671,6 +705,7 @@ class _$InitUploadFileEvent2 extends InitUploadFileEvent2 {
     TResult? Function(InitUploadFileEvent1 value)? init1,
     TResult? Function(LoadUploadFileEvent2 value)? load2,
     TResult? Function(InitUploadFileEvent2 value)? init2,
+    TResult? Function(SuccessUploadFileEvent value)? success,
   }) {
     return init2?.call(this);
   }
@@ -683,6 +718,7 @@ class _$InitUploadFileEvent2 extends InitUploadFileEvent2 {
     TResult Function(InitUploadFileEvent1 value)? init1,
     TResult Function(LoadUploadFileEvent2 value)? load2,
     TResult Function(InitUploadFileEvent2 value)? init2,
+    TResult Function(SuccessUploadFileEvent value)? success,
     required TResult orElse(),
   }) {
     if (init2 != null) {
@@ -698,6 +734,133 @@ abstract class InitUploadFileEvent2 extends UploadFileEvent {
 }
 
 /// @nodoc
+abstract class _$$SuccessUploadFileEventCopyWith<$Res> {
+  factory _$$SuccessUploadFileEventCopyWith(_$SuccessUploadFileEvent value,
+          $Res Function(_$SuccessUploadFileEvent) then) =
+      __$$SuccessUploadFileEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SuccessUploadFileEventCopyWithImpl<$Res>
+    extends _$UploadFileEventCopyWithImpl<$Res, _$SuccessUploadFileEvent>
+    implements _$$SuccessUploadFileEventCopyWith<$Res> {
+  __$$SuccessUploadFileEventCopyWithImpl(_$SuccessUploadFileEvent _value,
+      $Res Function(_$SuccessUploadFileEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SuccessUploadFileEvent extends SuccessUploadFileEvent {
+  const _$SuccessUploadFileEvent() : super._();
+
+  @override
+  String toString() {
+    return 'UploadFileEvent.success()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SuccessUploadFileEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() load1,
+    required TResult Function() init1,
+    required TResult Function() load2,
+    required TResult Function() init2,
+    required TResult Function() success,
+  }) {
+    return success();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? load1,
+    TResult? Function()? init1,
+    TResult? Function()? load2,
+    TResult? Function()? init2,
+    TResult? Function()? success,
+  }) {
+    return success?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? load1,
+    TResult Function()? init1,
+    TResult Function()? load2,
+    TResult Function()? init2,
+    TResult Function()? success,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitUploadFileEvent value) init,
+    required TResult Function(LoadUploadFileEvent1 value) load1,
+    required TResult Function(InitUploadFileEvent1 value) init1,
+    required TResult Function(LoadUploadFileEvent2 value) load2,
+    required TResult Function(InitUploadFileEvent2 value) init2,
+    required TResult Function(SuccessUploadFileEvent value) success,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitUploadFileEvent value)? init,
+    TResult? Function(LoadUploadFileEvent1 value)? load1,
+    TResult? Function(InitUploadFileEvent1 value)? init1,
+    TResult? Function(LoadUploadFileEvent2 value)? load2,
+    TResult? Function(InitUploadFileEvent2 value)? init2,
+    TResult? Function(SuccessUploadFileEvent value)? success,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitUploadFileEvent value)? init,
+    TResult Function(LoadUploadFileEvent1 value)? load1,
+    TResult Function(InitUploadFileEvent1 value)? init1,
+    TResult Function(LoadUploadFileEvent2 value)? load2,
+    TResult Function(InitUploadFileEvent2 value)? init2,
+    TResult Function(SuccessUploadFileEvent value)? success,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SuccessUploadFileEvent extends UploadFileEvent {
+  const factory SuccessUploadFileEvent() = _$SuccessUploadFileEvent;
+  const SuccessUploadFileEvent._() : super._();
+}
+
+/// @nodoc
 mixin _$UploadFileState {
   UploadFileResult get result1 => throw _privateConstructorUsedError;
   UploadFileResult get result2 => throw _privateConstructorUsedError;
@@ -705,6 +868,7 @@ mixin _$UploadFileState {
   String get fileName2 => throw _privateConstructorUsedError;
   String? get file1 => throw _privateConstructorUsedError;
   String? get file2 => throw _privateConstructorUsedError;
+  bool get success => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UploadFileStateCopyWith<UploadFileState> get copyWith =>
@@ -723,7 +887,8 @@ abstract class $UploadFileStateCopyWith<$Res> {
       String fileName1,
       String fileName2,
       String? file1,
-      String? file2});
+      String? file2,
+      bool success});
 
   $UploadFileResultCopyWith<$Res> get result1;
   $UploadFileResultCopyWith<$Res> get result2;
@@ -748,6 +913,7 @@ class _$UploadFileStateCopyWithImpl<$Res, $Val extends UploadFileState>
     Object? fileName2 = null,
     Object? file1 = freezed,
     Object? file2 = freezed,
+    Object? success = null,
   }) {
     return _then(_value.copyWith(
       result1: null == result1
@@ -774,6 +940,10 @@ class _$UploadFileStateCopyWithImpl<$Res, $Val extends UploadFileState>
           ? _value.file2
           : file2 // ignore: cast_nullable_to_non_nullable
               as String?,
+      success: null == success
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -808,7 +978,8 @@ abstract class _$$_UploadFileStateCopyWith<$Res>
       String fileName1,
       String fileName2,
       String? file1,
-      String? file2});
+      String? file2,
+      bool success});
 
   @override
   $UploadFileResultCopyWith<$Res> get result1;
@@ -833,6 +1004,7 @@ class __$$_UploadFileStateCopyWithImpl<$Res>
     Object? fileName2 = null,
     Object? file1 = freezed,
     Object? file2 = freezed,
+    Object? success = null,
   }) {
     return _then(_$_UploadFileState(
       result1: null == result1
@@ -859,6 +1031,10 @@ class __$$_UploadFileStateCopyWithImpl<$Res>
           ? _value.file2
           : file2 // ignore: cast_nullable_to_non_nullable
               as String?,
+      success: null == success
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -872,7 +1048,8 @@ class _$_UploadFileState implements _UploadFileState {
       required this.fileName1,
       required this.fileName2,
       required this.file1,
-      required this.file2});
+      required this.file2,
+      required this.success});
 
   @override
   final UploadFileResult result1;
@@ -886,10 +1063,12 @@ class _$_UploadFileState implements _UploadFileState {
   final String? file1;
   @override
   final String? file2;
+  @override
+  final bool success;
 
   @override
   String toString() {
-    return 'UploadFileState(result1: $result1, result2: $result2, fileName1: $fileName1, fileName2: $fileName2, file1: $file1, file2: $file2)';
+    return 'UploadFileState(result1: $result1, result2: $result2, fileName1: $fileName1, fileName2: $fileName2, file1: $file1, file2: $file2, success: $success)';
   }
 
   @override
@@ -904,12 +1083,13 @@ class _$_UploadFileState implements _UploadFileState {
             (identical(other.fileName2, fileName2) ||
                 other.fileName2 == fileName2) &&
             (identical(other.file1, file1) || other.file1 == file1) &&
-            (identical(other.file2, file2) || other.file2 == file2));
+            (identical(other.file2, file2) || other.file2 == file2) &&
+            (identical(other.success, success) || other.success == success));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, result1, result2, fileName1, fileName2, file1, file2);
+  int get hashCode => Object.hash(runtimeType, result1, result2, fileName1,
+      fileName2, file1, file2, success);
 
   @JsonKey(ignore: true)
   @override
@@ -925,7 +1105,8 @@ abstract class _UploadFileState implements UploadFileState {
       required final String fileName1,
       required final String fileName2,
       required final String? file1,
-      required final String? file2}) = _$_UploadFileState;
+      required final String? file2,
+      required final bool success}) = _$_UploadFileState;
 
   @override
   UploadFileResult get result1;
@@ -940,6 +1121,8 @@ abstract class _UploadFileState implements UploadFileState {
   @override
   String? get file2;
   @override
+  bool get success;
+  @override
   @JsonKey(ignore: true)
   _$$_UploadFileStateCopyWith<_$_UploadFileState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -952,6 +1135,7 @@ mixin _$UploadFileResult {
     required TResult Function() empty,
     required TResult Function() loading,
     required TResult Function() success,
+    required TResult Function() successContent,
     required TResult Function() failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -960,6 +1144,7 @@ mixin _$UploadFileResult {
     TResult? Function()? empty,
     TResult? Function()? loading,
     TResult? Function()? success,
+    TResult? Function()? successContent,
     TResult? Function()? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -968,6 +1153,7 @@ mixin _$UploadFileResult {
     TResult Function()? empty,
     TResult Function()? loading,
     TResult Function()? success,
+    TResult Function()? successContent,
     TResult Function()? failure,
     required TResult orElse(),
   }) =>
@@ -977,6 +1163,8 @@ mixin _$UploadFileResult {
     required TResult Function(EmptyUploadFileState value) empty,
     required TResult Function(LoadingUploadFileState value) loading,
     required TResult Function(SuccessUploadFileState value) success,
+    required TResult Function(SuccessContentUploadFileState value)
+        successContent,
     required TResult Function(FailureUploadFileState value) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -985,6 +1173,7 @@ mixin _$UploadFileResult {
     TResult? Function(EmptyUploadFileState value)? empty,
     TResult? Function(LoadingUploadFileState value)? loading,
     TResult? Function(SuccessUploadFileState value)? success,
+    TResult? Function(SuccessContentUploadFileState value)? successContent,
     TResult? Function(FailureUploadFileState value)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -993,6 +1182,7 @@ mixin _$UploadFileResult {
     TResult Function(EmptyUploadFileState value)? empty,
     TResult Function(LoadingUploadFileState value)? loading,
     TResult Function(SuccessUploadFileState value)? success,
+    TResult Function(SuccessContentUploadFileState value)? successContent,
     TResult Function(FailureUploadFileState value)? failure,
     required TResult orElse(),
   }) =>
@@ -1058,6 +1248,7 @@ class _$EmptyUploadFileState extends EmptyUploadFileState {
     required TResult Function() empty,
     required TResult Function() loading,
     required TResult Function() success,
+    required TResult Function() successContent,
     required TResult Function() failure,
   }) {
     return empty();
@@ -1069,6 +1260,7 @@ class _$EmptyUploadFileState extends EmptyUploadFileState {
     TResult? Function()? empty,
     TResult? Function()? loading,
     TResult? Function()? success,
+    TResult? Function()? successContent,
     TResult? Function()? failure,
   }) {
     return empty?.call();
@@ -1080,6 +1272,7 @@ class _$EmptyUploadFileState extends EmptyUploadFileState {
     TResult Function()? empty,
     TResult Function()? loading,
     TResult Function()? success,
+    TResult Function()? successContent,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -1095,6 +1288,8 @@ class _$EmptyUploadFileState extends EmptyUploadFileState {
     required TResult Function(EmptyUploadFileState value) empty,
     required TResult Function(LoadingUploadFileState value) loading,
     required TResult Function(SuccessUploadFileState value) success,
+    required TResult Function(SuccessContentUploadFileState value)
+        successContent,
     required TResult Function(FailureUploadFileState value) failure,
   }) {
     return empty(this);
@@ -1106,6 +1301,7 @@ class _$EmptyUploadFileState extends EmptyUploadFileState {
     TResult? Function(EmptyUploadFileState value)? empty,
     TResult? Function(LoadingUploadFileState value)? loading,
     TResult? Function(SuccessUploadFileState value)? success,
+    TResult? Function(SuccessContentUploadFileState value)? successContent,
     TResult? Function(FailureUploadFileState value)? failure,
   }) {
     return empty?.call(this);
@@ -1117,6 +1313,7 @@ class _$EmptyUploadFileState extends EmptyUploadFileState {
     TResult Function(EmptyUploadFileState value)? empty,
     TResult Function(LoadingUploadFileState value)? loading,
     TResult Function(SuccessUploadFileState value)? success,
+    TResult Function(SuccessContentUploadFileState value)? successContent,
     TResult Function(FailureUploadFileState value)? failure,
     required TResult orElse(),
   }) {
@@ -1173,6 +1370,7 @@ class _$LoadingUploadFileState extends LoadingUploadFileState {
     required TResult Function() empty,
     required TResult Function() loading,
     required TResult Function() success,
+    required TResult Function() successContent,
     required TResult Function() failure,
   }) {
     return loading();
@@ -1184,6 +1382,7 @@ class _$LoadingUploadFileState extends LoadingUploadFileState {
     TResult? Function()? empty,
     TResult? Function()? loading,
     TResult? Function()? success,
+    TResult? Function()? successContent,
     TResult? Function()? failure,
   }) {
     return loading?.call();
@@ -1195,6 +1394,7 @@ class _$LoadingUploadFileState extends LoadingUploadFileState {
     TResult Function()? empty,
     TResult Function()? loading,
     TResult Function()? success,
+    TResult Function()? successContent,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -1210,6 +1410,8 @@ class _$LoadingUploadFileState extends LoadingUploadFileState {
     required TResult Function(EmptyUploadFileState value) empty,
     required TResult Function(LoadingUploadFileState value) loading,
     required TResult Function(SuccessUploadFileState value) success,
+    required TResult Function(SuccessContentUploadFileState value)
+        successContent,
     required TResult Function(FailureUploadFileState value) failure,
   }) {
     return loading(this);
@@ -1221,6 +1423,7 @@ class _$LoadingUploadFileState extends LoadingUploadFileState {
     TResult? Function(EmptyUploadFileState value)? empty,
     TResult? Function(LoadingUploadFileState value)? loading,
     TResult? Function(SuccessUploadFileState value)? success,
+    TResult? Function(SuccessContentUploadFileState value)? successContent,
     TResult? Function(FailureUploadFileState value)? failure,
   }) {
     return loading?.call(this);
@@ -1232,6 +1435,7 @@ class _$LoadingUploadFileState extends LoadingUploadFileState {
     TResult Function(EmptyUploadFileState value)? empty,
     TResult Function(LoadingUploadFileState value)? loading,
     TResult Function(SuccessUploadFileState value)? success,
+    TResult Function(SuccessContentUploadFileState value)? successContent,
     TResult Function(FailureUploadFileState value)? failure,
     required TResult orElse(),
   }) {
@@ -1288,6 +1492,7 @@ class _$SuccessUploadFileState extends SuccessUploadFileState {
     required TResult Function() empty,
     required TResult Function() loading,
     required TResult Function() success,
+    required TResult Function() successContent,
     required TResult Function() failure,
   }) {
     return success();
@@ -1299,6 +1504,7 @@ class _$SuccessUploadFileState extends SuccessUploadFileState {
     TResult? Function()? empty,
     TResult? Function()? loading,
     TResult? Function()? success,
+    TResult? Function()? successContent,
     TResult? Function()? failure,
   }) {
     return success?.call();
@@ -1310,6 +1516,7 @@ class _$SuccessUploadFileState extends SuccessUploadFileState {
     TResult Function()? empty,
     TResult Function()? loading,
     TResult Function()? success,
+    TResult Function()? successContent,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -1325,6 +1532,8 @@ class _$SuccessUploadFileState extends SuccessUploadFileState {
     required TResult Function(EmptyUploadFileState value) empty,
     required TResult Function(LoadingUploadFileState value) loading,
     required TResult Function(SuccessUploadFileState value) success,
+    required TResult Function(SuccessContentUploadFileState value)
+        successContent,
     required TResult Function(FailureUploadFileState value) failure,
   }) {
     return success(this);
@@ -1336,6 +1545,7 @@ class _$SuccessUploadFileState extends SuccessUploadFileState {
     TResult? Function(EmptyUploadFileState value)? empty,
     TResult? Function(LoadingUploadFileState value)? loading,
     TResult? Function(SuccessUploadFileState value)? success,
+    TResult? Function(SuccessContentUploadFileState value)? successContent,
     TResult? Function(FailureUploadFileState value)? failure,
   }) {
     return success?.call(this);
@@ -1347,6 +1557,7 @@ class _$SuccessUploadFileState extends SuccessUploadFileState {
     TResult Function(EmptyUploadFileState value)? empty,
     TResult Function(LoadingUploadFileState value)? loading,
     TResult Function(SuccessUploadFileState value)? success,
+    TResult Function(SuccessContentUploadFileState value)? successContent,
     TResult Function(FailureUploadFileState value)? failure,
     required TResult orElse(),
   }) {
@@ -1360,6 +1571,133 @@ class _$SuccessUploadFileState extends SuccessUploadFileState {
 abstract class SuccessUploadFileState extends UploadFileResult {
   const factory SuccessUploadFileState() = _$SuccessUploadFileState;
   const SuccessUploadFileState._() : super._();
+}
+
+/// @nodoc
+abstract class _$$SuccessContentUploadFileStateCopyWith<$Res> {
+  factory _$$SuccessContentUploadFileStateCopyWith(
+          _$SuccessContentUploadFileState value,
+          $Res Function(_$SuccessContentUploadFileState) then) =
+      __$$SuccessContentUploadFileStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SuccessContentUploadFileStateCopyWithImpl<$Res>
+    extends _$UploadFileResultCopyWithImpl<$Res,
+        _$SuccessContentUploadFileState>
+    implements _$$SuccessContentUploadFileStateCopyWith<$Res> {
+  __$$SuccessContentUploadFileStateCopyWithImpl(
+      _$SuccessContentUploadFileState _value,
+      $Res Function(_$SuccessContentUploadFileState) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SuccessContentUploadFileState extends SuccessContentUploadFileState {
+  const _$SuccessContentUploadFileState() : super._();
+
+  @override
+  String toString() {
+    return 'UploadFileResult.successContent()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessContentUploadFileState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() empty,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function() successContent,
+    required TResult Function() failure,
+  }) {
+    return successContent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? empty,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function()? successContent,
+    TResult? Function()? failure,
+  }) {
+    return successContent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? empty,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function()? successContent,
+    TResult Function()? failure,
+    required TResult orElse(),
+  }) {
+    if (successContent != null) {
+      return successContent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmptyUploadFileState value) empty,
+    required TResult Function(LoadingUploadFileState value) loading,
+    required TResult Function(SuccessUploadFileState value) success,
+    required TResult Function(SuccessContentUploadFileState value)
+        successContent,
+    required TResult Function(FailureUploadFileState value) failure,
+  }) {
+    return successContent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(EmptyUploadFileState value)? empty,
+    TResult? Function(LoadingUploadFileState value)? loading,
+    TResult? Function(SuccessUploadFileState value)? success,
+    TResult? Function(SuccessContentUploadFileState value)? successContent,
+    TResult? Function(FailureUploadFileState value)? failure,
+  }) {
+    return successContent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmptyUploadFileState value)? empty,
+    TResult Function(LoadingUploadFileState value)? loading,
+    TResult Function(SuccessUploadFileState value)? success,
+    TResult Function(SuccessContentUploadFileState value)? successContent,
+    TResult Function(FailureUploadFileState value)? failure,
+    required TResult orElse(),
+  }) {
+    if (successContent != null) {
+      return successContent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SuccessContentUploadFileState extends UploadFileResult {
+  const factory SuccessContentUploadFileState() =
+      _$SuccessContentUploadFileState;
+  const SuccessContentUploadFileState._() : super._();
 }
 
 /// @nodoc
@@ -1403,6 +1741,7 @@ class _$FailureUploadFileState extends FailureUploadFileState {
     required TResult Function() empty,
     required TResult Function() loading,
     required TResult Function() success,
+    required TResult Function() successContent,
     required TResult Function() failure,
   }) {
     return failure();
@@ -1414,6 +1753,7 @@ class _$FailureUploadFileState extends FailureUploadFileState {
     TResult? Function()? empty,
     TResult? Function()? loading,
     TResult? Function()? success,
+    TResult? Function()? successContent,
     TResult? Function()? failure,
   }) {
     return failure?.call();
@@ -1425,6 +1765,7 @@ class _$FailureUploadFileState extends FailureUploadFileState {
     TResult Function()? empty,
     TResult Function()? loading,
     TResult Function()? success,
+    TResult Function()? successContent,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -1440,6 +1781,8 @@ class _$FailureUploadFileState extends FailureUploadFileState {
     required TResult Function(EmptyUploadFileState value) empty,
     required TResult Function(LoadingUploadFileState value) loading,
     required TResult Function(SuccessUploadFileState value) success,
+    required TResult Function(SuccessContentUploadFileState value)
+        successContent,
     required TResult Function(FailureUploadFileState value) failure,
   }) {
     return failure(this);
@@ -1451,6 +1794,7 @@ class _$FailureUploadFileState extends FailureUploadFileState {
     TResult? Function(EmptyUploadFileState value)? empty,
     TResult? Function(LoadingUploadFileState value)? loading,
     TResult? Function(SuccessUploadFileState value)? success,
+    TResult? Function(SuccessContentUploadFileState value)? successContent,
     TResult? Function(FailureUploadFileState value)? failure,
   }) {
     return failure?.call(this);
@@ -1462,6 +1806,7 @@ class _$FailureUploadFileState extends FailureUploadFileState {
     TResult Function(EmptyUploadFileState value)? empty,
     TResult Function(LoadingUploadFileState value)? loading,
     TResult Function(SuccessUploadFileState value)? success,
+    TResult Function(SuccessContentUploadFileState value)? successContent,
     TResult Function(FailureUploadFileState value)? failure,
     required TResult orElse(),
   }) {

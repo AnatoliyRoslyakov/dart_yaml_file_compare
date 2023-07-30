@@ -18,6 +18,8 @@ class UploadFileEvent with _$UploadFileEvent {
   const factory UploadFileEvent.load2() = LoadUploadFileEvent2;
 
   const factory UploadFileEvent.init2() = InitUploadFileEvent2;
+  
+  const factory UploadFileEvent.success() = SuccessUploadFileEvent;
 }
 
 @freezed
@@ -28,7 +30,8 @@ class UploadFileState with _$UploadFileState {
       required String fileName1,
       required String fileName2,
       required String? file1,
-      required String? file2}) = _UploadFileState;
+      required String? file2,
+      required bool success}) = _UploadFileState;
 
   factory UploadFileState.initial() => const UploadFileState(
       result1: UploadFileResult.empty(),
@@ -36,7 +39,8 @@ class UploadFileState with _$UploadFileState {
       file1: '',
       result2: UploadFileResult.empty(),
       fileName2: '',
-      file2: '');
+      file2: '',
+      success: false);
 }
 
 @freezed
@@ -49,6 +53,8 @@ class UploadFileResult with _$UploadFileResult {
 
   const factory UploadFileResult.success() = SuccessUploadFileState;
 
+  const factory UploadFileResult.successContent() = SuccessContentUploadFileState;
+
   const factory UploadFileResult.failure() = FailureUploadFileState;
 }
 
@@ -59,6 +65,7 @@ class UploadFileBloc extends Bloc<UploadFileEvent, UploadFileState> {
     on<InitUploadFileEvent1>(_init1);
     on<LoadUploadFileEvent2>(_load2);
     on<InitUploadFileEvent2>(_init2);
+    on<SuccessUploadFileEvent>(_success);
   }
   Future<void> _load1(
       UploadFileEvent event, Emitter<UploadFileState> emit) async {
@@ -84,7 +91,7 @@ class UploadFileBloc extends Bloc<UploadFileEvent, UploadFileState> {
   Future<void> _init1(
       UploadFileEvent event, Emitter<UploadFileState> emit) async {
     emit(state.copyWith(
-        result1: const UploadFileResult.empty(), fileName1: '', file1: ''));
+        result1: const UploadFileResult.empty(), fileName1: '', file1: '', success: false));
   }
 
   Future<void> _load2(
@@ -111,7 +118,7 @@ class UploadFileBloc extends Bloc<UploadFileEvent, UploadFileState> {
   Future<void> _init2(
       UploadFileEvent event, Emitter<UploadFileState> emit) async {
     emit(state.copyWith(
-        result2: const UploadFileResult.empty(), fileName2: '', file2: ''));
+        result2: const UploadFileResult.empty(), fileName2: '', file2: '', success: false));
   }
 
   Future<void> _init(
@@ -121,6 +128,12 @@ class UploadFileBloc extends Bloc<UploadFileEvent, UploadFileState> {
         fileName2: '',
         file2: '',
         fileName1: '',
-        file1: ''));
+        file1: '',
+        success: false));
   }
+
+  Future<void> _success(
+      UploadFileEvent event, Emitter<UploadFileState> emit) async {
+        emit(state.copyWith(success: true));
+      }
 }
