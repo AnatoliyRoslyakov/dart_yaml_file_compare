@@ -1,3 +1,4 @@
+import 'package:app_yaml_compare/domaim/state/generate_format_text/format_text_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,19 +13,63 @@ class ValueWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ValueBloc, ValueState>(builder: (context, state) {
-      return Row(children: [
-        ContentContainer(
-            listLength: state.lines1.length,
-            color: state.colorList1,
-            lines: state.lines1,
-            value: state.value1),
-        ContentContainer(
-            listLength: state.lines2.length,
-            color: state.colorList2,
-            lines: state.lines2,
-            value: state.value1),
-      ]);
+      return BlocBuilder<FormatTextBloc, FormatTextState>(
+          builder: (context, stateFormat) {
+        return stateFormat.switchFormat
+            ? Row(
+                children: [ContentContainerFormat(), ContentContainerFormat()],
+              )
+            : Row(children: [
+                ContentContainer(
+                    listLength: state.lines1.length,
+                    color: state.colorList1,
+                    lines: state.lines1,
+                    value: state.value1),
+                ContentContainer(
+                    listLength: state.lines2.length,
+                    color: state.colorList2,
+                    lines: state.lines2,
+                    value: state.value1),
+              ]);
+      });
     });
+  }
+}
+
+class ContentContainerFormat extends StatelessWidget {
+  const ContentContainerFormat({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+    return Container(
+        width: screenSize.width * 0.35,
+        height: screenSize.height,
+        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: AppColors.mainElement)),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Text(
+                  'Ключ',
+                  style: const TextStyle(
+                      color: AppColors.mainElement,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              const Divider(),
+              Expanded(child: Text('Значение')),
+            ],
+          ),
+        ));
   }
 }
 
@@ -45,8 +90,8 @@ class ContentContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     return Container(
-      width: screenSize.width*0.35, 
-    height: screenSize.height,
+        width: screenSize.width * 0.35,
+        height: screenSize.height,
         // width: 350,
         // height: double.infinity,
         margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
@@ -67,7 +112,7 @@ class ContentContainer extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
               ),
-             const Divider(),
+              const Divider(),
               Expanded(
                 child: ListView.builder(
                   itemCount: lines.length,
