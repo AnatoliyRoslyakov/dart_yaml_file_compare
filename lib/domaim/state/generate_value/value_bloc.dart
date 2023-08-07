@@ -38,6 +38,7 @@ class ValueBloc extends Bloc<ValueEvent, ValueState> {
   Future<void> _create(CreateValueEvent event, Emitter<ValueState> emit) async {
     Map fileMap1 = loadYaml(event.file1.toString()) ?? {};
     Map fileMap2 = loadYaml(event.file2.toString()) ?? {};
+    
     var value1 = fileMap1[event.keyIndex];
     var value2 = fileMap2[event.keyIndex];
 

@@ -1,3 +1,4 @@
+import 'package:app_yaml_compare/domaim/state/generate_format_text/format_text_bloc.dart';
 import 'package:app_yaml_compare/domaim/state/generate_key_list/key_list_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,6 +32,10 @@ class MyApp extends StatelessWidget {
             BlocProvider<ValueBloc>(
               create: (context) =>
                   ValueBloc()..add(const ValueEvent.create('', '', '',)),
+            ),
+            BlocProvider<FormatTextBloc>(
+              create: (context) =>
+                  FormatTextBloc(),
             ),
           ],
           child: const HomePage(),

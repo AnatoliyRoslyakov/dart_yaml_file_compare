@@ -1,3 +1,4 @@
+import 'package:app_yaml_compare/domaim/state/generate_format_text/format_text_bloc.dart';
 import 'package:app_yaml_compare/ui/widget/value_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,45 +36,55 @@ class KeyListWidget extends StatelessWidget {
                           controller: yourScrollController,
                           itemCount: state.keyList.length,
                           itemBuilder: (context, index) {
-                            return Padding(
-                              padding: const EdgeInsets.all(3.0),
-                              child: InkWell(
-                                onTap: () {
-                                  context.read<ValueBloc>().add(
-                                      ValueEvent.create(
-                                          file1, file2, state.keyList[index]));
-                                  context
-                                      .read<KeyListBloc>()
-                                      .add(KeyListEvent.press(index));
-                                },
-                                child: Container(
-                                  height: 45,
-                                  width: 200,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      border: Border.all(
-                                          color: AppColors.mainElement,
-                                          width: state.newColorList[index] ==
-                                                  AppColors.mainElement
-                                              ? 4
-                                              : 1),
-                                      color: state.colorList[index]),
-                                  child: Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(9.0),
-                                      child: Text(
-                                        state.keyList[index],
-                                        style: const TextStyle(
-                                            color: AppColors.mainText,
-                                            fontWeight: FontWeight.w500),
-                                        overflow: TextOverflow.ellipsis,
+                            return BlocBuilder<FormatTextBloc, FormatTextState>(
+                                builder: (context, stateFormat) {
+                              return Padding(
+                                padding: const EdgeInsets.all(3.0),
+                                child: InkWell(
+                                  onTap: () {
+                                    if (stateFormat.switchFormat) {
+                                      context.read<FormatTextBloc>().add(
+                                          FormatTextEvent.value(file1, file2,
+                                              state.keyList[index]));
+                                    } else {
+                                      context.read<ValueBloc>().add(
+                                          ValueEvent.create(file1, file2,
+                                              state.keyList[index]));
+                                    }
+
+                                    context
+                                        .read<KeyListBloc>()
+                                        .add(KeyListEvent.press(index));
+                                  },
+                                  child: Container(
+                                    height: 45,
+                                    width: 200,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(
+                                            color: AppColors.mainElement,
+                                            width: state.newColorList[index] ==
+                                                    AppColors.mainElement
+                                                ? 4
+                                                : 1),
+                                        color: state.colorList[index]),
+                                    child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(9.0),
+                                        child: Text(
+                                          state.keyList[index],
+                                          style: const TextStyle(
+                                              color: AppColors.mainText,
+                                              fontWeight: FontWeight.w500),
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            );
+                              );
+                            });
                           }),
                     ),
                   ),
