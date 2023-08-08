@@ -17,7 +17,12 @@ class ValueWidget extends StatelessWidget {
           builder: (context, stateFormat) {
         return stateFormat.switchFormat
             ? Row(
-                children: [ContentContainerFormat(), ContentContainerFormat()],
+                children: [
+                  ContentContainerFormat(
+                      value: stateFormat.value1, keyIndex: stateFormat.key),
+                  ContentContainerFormat(
+                      value: stateFormat.value2, keyIndex: stateFormat.key)
+                ],
               )
             : Row(children: [
                 ContentContainer(
@@ -37,8 +42,12 @@ class ValueWidget extends StatelessWidget {
 }
 
 class ContentContainerFormat extends StatelessWidget {
+  final String value;
+  final String keyIndex;
   const ContentContainerFormat({
     super.key,
+    required this.value,
+    required this.keyIndex,
   });
 
   @override
@@ -59,14 +68,14 @@ class ContentContainerFormat extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Text(
-                  'Ключ',
+                  keyIndex,
                   style: const TextStyle(
                       color: AppColors.mainElement,
                       fontWeight: FontWeight.bold),
                 ),
               ),
               const Divider(),
-              Expanded(child: Text('Значение')),
+              Expanded(child: Text(value)),
             ],
           ),
         ));

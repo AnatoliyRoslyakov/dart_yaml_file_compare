@@ -18,7 +18,7 @@ class UploadFileEvent with _$UploadFileEvent {
   const factory UploadFileEvent.load2() = LoadUploadFileEvent2;
 
   const factory UploadFileEvent.init2() = InitUploadFileEvent2;
-  
+
   const factory UploadFileEvent.success() = SuccessUploadFileEvent;
 }
 
@@ -53,7 +53,8 @@ class UploadFileResult with _$UploadFileResult {
 
   const factory UploadFileResult.success() = SuccessUploadFileState;
 
-  const factory UploadFileResult.successContent() = SuccessContentUploadFileState;
+  const factory UploadFileResult.successContent() =
+      SuccessContentUploadFileState;
 
   const factory UploadFileResult.failure() = FailureUploadFileState;
 }
@@ -71,7 +72,7 @@ class UploadFileBloc extends Bloc<UploadFileEvent, UploadFileState> {
       UploadFileEvent event, Emitter<UploadFileState> emit) async {
     final result = await AppFilePicker.selectFile();
 
-    if (result.$1 == null) {
+    if (result.$3 == null) {
       emit(state.copyWith(result1: const UploadFileResult.failure()));
       return;
     }
@@ -91,7 +92,10 @@ class UploadFileBloc extends Bloc<UploadFileEvent, UploadFileState> {
   Future<void> _init1(
       UploadFileEvent event, Emitter<UploadFileState> emit) async {
     emit(state.copyWith(
-        result1: const UploadFileResult.empty(), fileName1: '', file1: '', success: false));
+        result1: const UploadFileResult.empty(),
+        fileName1: '',
+        file1: '',
+        success: false));
   }
 
   Future<void> _load2(
@@ -118,7 +122,10 @@ class UploadFileBloc extends Bloc<UploadFileEvent, UploadFileState> {
   Future<void> _init2(
       UploadFileEvent event, Emitter<UploadFileState> emit) async {
     emit(state.copyWith(
-        result2: const UploadFileResult.empty(), fileName2: '', file2: '', success: false));
+        result2: const UploadFileResult.empty(),
+        fileName2: '',
+        file2: '',
+        success: false));
   }
 
   Future<void> _init(
@@ -134,6 +141,6 @@ class UploadFileBloc extends Bloc<UploadFileEvent, UploadFileState> {
 
   Future<void> _success(
       UploadFileEvent event, Emitter<UploadFileState> emit) async {
-        emit(state.copyWith(success: true));
-      }
+    emit(state.copyWith(success: true));
+  }
 }

@@ -42,15 +42,13 @@ class KeyListWidget extends StatelessWidget {
                                 padding: const EdgeInsets.all(3.0),
                                 child: InkWell(
                                   onTap: () {
-                                    if (stateFormat.switchFormat) {
-                                      context.read<FormatTextBloc>().add(
-                                          FormatTextEvent.value(file1, file2,
-                                              state.keyList[index]));
-                                    } else {
-                                      context.read<ValueBloc>().add(
-                                          ValueEvent.create(file1, file2,
-                                              state.keyList[index]));
-                                    }
+                                    context.read<FormatTextBloc>().add(
+                                        FormatTextEvent.value(file1, file2,
+                                            state.keyList[index]));
+
+                                    context.read<ValueBloc>().add(
+                                        ValueEvent.create(file1, file2,
+                                            state.keyList[index]));
 
                                     context
                                         .read<KeyListBloc>()
