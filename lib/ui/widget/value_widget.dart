@@ -75,7 +75,10 @@ class ContentContainerFormat extends StatelessWidget {
                 ),
               ),
               const Divider(),
-              Expanded(child: Text(value)),
+              Expanded(child: SingleChildScrollView(child: Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Text(value),
+              ))),
             ],
           ),
         ));

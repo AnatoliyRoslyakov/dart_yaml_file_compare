@@ -42,6 +42,7 @@ class FormatTextBloc extends Bloc<FormatTextEvent, FormatTextState> {
   Future<void> _value(
       ValueFormatTextEvent event, Emitter<FormatTextState> emit) async {
     List<String> value1 = event.file1!.split('\n');
+//  print(value1);
     List<String> value2 = event.file2!.split('\n');
 
     String getSelectedLines(
@@ -67,8 +68,8 @@ class FormatTextBloc extends Bloc<FormatTextEvent, FormatTextState> {
     }
 
     emit(state.copyWith(
-        value1: getSelectedLines(value1, '${event.key}:', '\n\n'),
-        value2: getSelectedLines(value2, '${event.key}:', '\n\n'),
+        value1: getSelectedLines(value1, '${event.key}:', '\n '),
+        value2: getSelectedLines(value2, '${event.key}:', '\n '),
         key: event.key));
   }
 }
