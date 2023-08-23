@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:yaml/yaml.dart';
 
 part 'format_text_bloc.freezed.dart';
 
@@ -42,8 +43,17 @@ class FormatTextBloc extends Bloc<FormatTextEvent, FormatTextState> {
   Future<void> _value(
       ValueFormatTextEvent event, Emitter<FormatTextState> emit) async {
     List<String> value1 = event.file1!.split('\n');
-//  print(value1);
     List<String> value2 = event.file2!.split('\n');
+    Map fileMap1 = loadYaml(event.file1.toString());
+    Map fileMap2 = loadYaml(event.file2.toString());
+    List keyList1 = fileMap1.keys.toList();
+    List keyList2 = fileMap2.keys.toList();
+    int indexKey1 = keyList1.indexOf(event.key);
+    int indexKey2 = keyList2.indexOf(event.key);
+    String stopPattern1 =
+        event.key == keyList1.last ? '____' : keyList1[indexKey1 + 1];
+    String stopPattern2 =
+        event.key == keyList2.last ? '____' : keyList2[indexKey2 + 1];
 
     String getSelectedLines(
         List<String> value, String startPattern, String endPattern) {
@@ -51,16 +61,17 @@ class FormatTextBloc extends Bloc<FormatTextEvent, FormatTextState> {
       bool isInsideSelection = false;
 
       for (var line in value) {
-        if (line.contains(startPattern)) {
+        if (line.startsWith(startPattern)) {
           isInsideSelection = true;
+          continue; // Пропустить строку, содержащую startPattern
         }
 
         if (isInsideSelection) {
-          selectedLinesBuffer.writeln(line);
-        }
-
-        if (line.contains(endPattern)) {
-          isInsideSelection = false;
+          if (line.contains(endPattern)) {
+            isInsideSelection = false;
+          } else {
+            selectedLinesBuffer.writeln(line);
+          }
         }
       }
 
@@ -68,8 +79,8 @@ class FormatTextBloc extends Bloc<FormatTextEvent, FormatTextState> {
     }
 
     emit(state.copyWith(
-        value1: getSelectedLines(value1, '${event.key}:', '\n '),
-        value2: getSelectedLines(value2, '${event.key}:', '\n '),
+        value1: getSelectedLines(value1, '${event.key}:', stopPattern1),
+        value2: getSelectedLines(value2, '${event.key}:', stopPattern2),
         key: event.key));
   }
 }
