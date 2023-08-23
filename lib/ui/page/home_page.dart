@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
                                             color: AppColors.mainElement,
                                             width: 1),
                                         color: AppColors.secondaryElement),
-                                    // width: screenSize.width * 0.2 - 5,
+                                    width: screenSize.width * 0.2 - 5,
                                     height: 45,
                                     child: const Padding(
                                       padding: EdgeInsets.all(9.0),

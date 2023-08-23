@@ -36,9 +36,9 @@ class ValueBloc extends Bloc<ValueEvent, ValueState> {
   }
 
   Future<void> _create(CreateValueEvent event, Emitter<ValueState> emit) async {
-    Map fileMap1 = loadYaml(event.file1.toString()) ?? {};
-    Map fileMap2 = loadYaml(event.file2.toString()) ?? {};
-    
+    Map fileMap1 = loadYaml(event.file1) ?? {};
+    Map fileMap2 = loadYaml(event.file2) ?? {};
+
     var value1 = fileMap1[event.keyIndex];
     var value2 = fileMap2[event.keyIndex];
 
@@ -96,7 +96,7 @@ class ValueBloc extends Bloc<ValueEvent, ValueState> {
     List<String> lines11 = str1.split('\n');
     List<String> lines22 = str2.split('\n');
     emit(state.copyWith(
-      value1: event.keyIndex,
+        value1: event.keyIndex,
         lines1: lines11,
         lines2: lines22,
         colorList1: colorList1,
