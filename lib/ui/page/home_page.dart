@@ -39,8 +39,10 @@ class HomePage extends StatelessWidget {
                                 padding:
                                     const EdgeInsets.only(right: 20, left: 5),
                                 child: InkWell(
-                                  onTap: (){
-                                    context.read<FormatTextBloc>().add(const SwitchFormatTextEvent());
+                                  onTap: () {
+                                    context
+                                        .read<FormatTextBloc>()
+                                        .add(const SwitchFormatTextEvent());
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -49,7 +51,7 @@ class HomePage extends StatelessWidget {
                                             color: AppColors.mainElement,
                                             width: 1),
                                         color: AppColors.secondaryElement),
-                                    width: screenSize.width * 0.2 - 5,
+                                    // width: screenSize.width * 0.2 - 5,
                                     height: 45,
                                     child: const Padding(
                                       padding: EdgeInsets.all(9.0),
@@ -274,8 +276,9 @@ class HomePage extends StatelessWidget {
                                   },
                                   child: const Text('Select file')),
                           ]),
-                          const SizedBox(height: 10,),
-                         
+                    const SizedBox(
+                      height: 10,
+                    ),
                     KeyListWidget(
                       file1: state.file1!,
                       file2: state.file2!,
