@@ -58,7 +58,7 @@ class FormatTextBloc extends Bloc<FormatTextEvent, FormatTextState> {
     int indexKey2 = keyList2.indexOf(event.key);
 
     String stopPattern1 =
-        event.key == keyList1.last ? '( . Y . )' : keyList1[indexKey1 + 1];
+        event.key == keyList1.last ? '( . Y .. )' : keyList1[indexKey1 + 1];
     String stopPattern2 =
         event.key == keyList2.last ? '( . Y . )' : keyList2[indexKey2 + 1];
 
