@@ -336,26 +336,26 @@ abstract class ValueFormatTextEvent extends FormatTextEvent {
 mixin _$FormatTextState {
   bool get switchFormat => throw _privateConstructorUsedError;
   String get key => throw _privateConstructorUsedError;
-  String get value1 => throw _privateConstructorUsedError;
-  String get value2 => throw _privateConstructorUsedError;
+  (String, List<int>) get value1 => throw _privateConstructorUsedError;
+  (String, List<int>) get value2 => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            bool switchFormat, String key, String value1, String value2)
+    required TResult Function(bool switchFormat, String key,
+            (String, List<int>) value1, (String, List<int>) value2)
         initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            bool switchFormat, String key, String value1, String value2)?
+    TResult? Function(bool switchFormat, String key, (String, List<int>) value1,
+            (String, List<int>) value2)?
         initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            bool switchFormat, String key, String value1, String value2)?
+    TResult Function(bool switchFormat, String key, (String, List<int>) value1,
+            (String, List<int>) value2)?
         initial,
     required TResult orElse(),
   }) =>
@@ -388,7 +388,11 @@ abstract class $FormatTextStateCopyWith<$Res> {
           FormatTextState value, $Res Function(FormatTextState) then) =
       _$FormatTextStateCopyWithImpl<$Res, FormatTextState>;
   @useResult
-  $Res call({bool switchFormat, String key, String value1, String value2});
+  $Res call(
+      {bool switchFormat,
+      String key,
+      (String, List<int>) value1,
+      (String, List<int>) value2});
 }
 
 /// @nodoc
@@ -421,11 +425,11 @@ class _$FormatTextStateCopyWithImpl<$Res, $Val extends FormatTextState>
       value1: null == value1
           ? _value.value1
           : value1 // ignore: cast_nullable_to_non_nullable
-              as String,
+              as (String, List<int>),
       value2: null == value2
           ? _value.value2
           : value2 // ignore: cast_nullable_to_non_nullable
-              as String,
+              as (String, List<int>),
     ) as $Val);
   }
 }
@@ -438,7 +442,11 @@ abstract class _$$InitialFormatTextStateCopyWith<$Res>
       __$$InitialFormatTextStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool switchFormat, String key, String value1, String value2});
+  $Res call(
+      {bool switchFormat,
+      String key,
+      (String, List<int>) value1,
+      (String, List<int>) value2});
 }
 
 /// @nodoc
@@ -469,11 +477,11 @@ class __$$InitialFormatTextStateCopyWithImpl<$Res>
       null == value1
           ? _value.value1
           : value1 // ignore: cast_nullable_to_non_nullable
-              as String,
+              as (String, List<int>),
       null == value2
           ? _value.value2
           : value2 // ignore: cast_nullable_to_non_nullable
-              as String,
+              as (String, List<int>),
     ));
   }
 }
@@ -490,9 +498,9 @@ class _$InitialFormatTextState extends InitialFormatTextState {
   @override
   final String key;
   @override
-  final String value1;
+  final (String, List<int>) value1;
   @override
-  final String value2;
+  final (String, List<int>) value2;
 
   @override
   String toString() {
@@ -525,8 +533,8 @@ class _$InitialFormatTextState extends InitialFormatTextState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            bool switchFormat, String key, String value1, String value2)
+    required TResult Function(bool switchFormat, String key,
+            (String, List<int>) value1, (String, List<int>) value2)
         initial,
   }) {
     return initial(switchFormat, key, value1, value2);
@@ -535,8 +543,8 @@ class _$InitialFormatTextState extends InitialFormatTextState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            bool switchFormat, String key, String value1, String value2)?
+    TResult? Function(bool switchFormat, String key, (String, List<int>) value1,
+            (String, List<int>) value2)?
         initial,
   }) {
     return initial?.call(switchFormat, key, value1, value2);
@@ -545,8 +553,8 @@ class _$InitialFormatTextState extends InitialFormatTextState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            bool switchFormat, String key, String value1, String value2)?
+    TResult Function(bool switchFormat, String key, (String, List<int>) value1,
+            (String, List<int>) value2)?
         initial,
     required TResult orElse(),
   }) {
@@ -589,8 +597,8 @@ abstract class InitialFormatTextState extends FormatTextState {
   const factory InitialFormatTextState(
       final bool switchFormat,
       final String key,
-      final String value1,
-      final String value2) = _$InitialFormatTextState;
+      final (String, List<int>) value1,
+      final (String, List<int>) value2) = _$InitialFormatTextState;
   const InitialFormatTextState._() : super._();
 
   @override
@@ -598,9 +606,9 @@ abstract class InitialFormatTextState extends FormatTextState {
   @override
   String get key;
   @override
-  String get value1;
+  (String, List<int>) get value1;
   @override
-  String get value2;
+  (String, List<int>) get value2;
   @override
   @JsonKey(ignore: true)
   _$$InitialFormatTextStateCopyWith<_$InitialFormatTextState> get copyWith =>

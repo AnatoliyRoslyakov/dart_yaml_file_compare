@@ -42,7 +42,7 @@ class ValueWidget extends StatelessWidget {
 }
 
 class ContentContainerFormat extends StatelessWidget {
-  final String value;
+  final (String, List<int>) value;
   final String keyIndex;
   const ContentContainerFormat({
     super.key,
@@ -75,10 +75,37 @@ class ContentContainerFormat extends StatelessWidget {
                 ),
               ),
               const Divider(),
-              Expanded(child: SingleChildScrollView(child: Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Text(value),
-              ))),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                       const SizedBox(
+                                    width: 5,
+                                  ),
+                      ScrollConfiguration(
+                        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+                        child: SizedBox(
+                          width: 30,
+                          child: ListView.builder(shrinkWrap: true,
+                           physics: const NeverScrollableScrollPhysics(),
+                            itemCount: value.$2.length,
+                            itemBuilder: (context, index){
+                              return Text('${value.$2[index].toString()}:', style: const TextStyle(
+                                        color: AppColors.mainElement));
+                            }),
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Text(value.$1, style: const TextStyle(color: AppColors.mainText),),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ));

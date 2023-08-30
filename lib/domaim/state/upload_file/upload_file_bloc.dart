@@ -20,6 +20,8 @@ class UploadFileEvent with _$UploadFileEvent {
   const factory UploadFileEvent.init2() = InitUploadFileEvent2;
 
   const factory UploadFileEvent.success() = SuccessUploadFileEvent;
+
+  const factory UploadFileEvent.format() = FormatUploadFileEvent;
 }
 
 @freezed
@@ -31,7 +33,8 @@ class UploadFileState with _$UploadFileState {
       required String fileName2,
       required String? file1,
       required String? file2,
-      required bool success}) = _UploadFileState;
+      required bool success,
+      required bool format}) = _UploadFileState;
 
   factory UploadFileState.initial() => const UploadFileState(
       result1: UploadFileResult.empty(),
@@ -40,7 +43,8 @@ class UploadFileState with _$UploadFileState {
       result2: UploadFileResult.empty(),
       fileName2: '',
       file2: '',
-      success: false);
+      success: false,
+      format: false);
 }
 
 @freezed
@@ -67,6 +71,7 @@ class UploadFileBloc extends Bloc<UploadFileEvent, UploadFileState> {
     on<LoadUploadFileEvent2>(_load2);
     on<InitUploadFileEvent2>(_init2);
     on<SuccessUploadFileEvent>(_success);
+    on<FormatUploadFileEvent>(_format);
   }
   Future<void> _load1(
       UploadFileEvent event, Emitter<UploadFileState> emit) async {
@@ -142,5 +147,10 @@ class UploadFileBloc extends Bloc<UploadFileEvent, UploadFileState> {
   Future<void> _success(
       UploadFileEvent event, Emitter<UploadFileState> emit) async {
     emit(state.copyWith(success: true));
+  }
+
+    Future<void> _format(
+      UploadFileEvent event, Emitter<UploadFileState> emit) async {
+    emit(state.copyWith(format: !state.format));
   }
 }

@@ -19,8 +19,11 @@ class FormatTextState with _$FormatTextState {
   const FormatTextState._();
 
   const factory FormatTextState.initial(
-          bool switchFormat, String key, String value1, String value2) =
-      InitialFormatTextState;
+    bool switchFormat,
+    String key,
+    (String, List<int>) value1,
+    (String, List<int>) value2,
+  ) = InitialFormatTextState;
 }
 
 class FormatTextBloc extends Bloc<FormatTextEvent, FormatTextState> {
@@ -28,8 +31,8 @@ class FormatTextBloc extends Bloc<FormatTextEvent, FormatTextState> {
       : super(const FormatTextState.initial(
           false,
           '',
-          '',
-          '',
+          ('', []),
+          ('', []),
         )) {
     on<SwitchFormatTextEvent>(_switchFormat);
     on<ValueFormatTextEvent>(_value);
@@ -55,36 +58,42 @@ class FormatTextBloc extends Bloc<FormatTextEvent, FormatTextState> {
     int indexKey2 = keyList2.indexOf(event.key);
 
     String stopPattern1 =
-        event.key == keyList1.last ? '____' : keyList1[indexKey1 + 1];
+        event.key == keyList1.last ? '( . Y . )' : keyList1[indexKey1 + 1];
     String stopPattern2 =
-        event.key == keyList2.last ? '____' : keyList2[indexKey2 + 1];
+        event.key == keyList2.last ? '( . Y . )' : keyList2[indexKey2 + 1];
 
-    String getSelectedLines(
+    (String, List<int>) getSelectedLines(
         List<String> value, String startPattern, String endPattern) {
       StringBuffer selectedLinesBuffer = StringBuffer();
       bool isInsideSelection = false;
+      List<int> numStr = [];
+      int indexStart = 0;
+      int indexEnd = 1;
 
       for (var line in value) {
         if (line.startsWith(startPattern)) {
+          indexStart = value.indexOf(line) + 2;
           isInsideSelection = true;
           continue; // Пропустить строку, содержащую startPattern
         }
 
         if (isInsideSelection) {
-          if (line.contains(endPattern)) {
+          if (line.startsWith(endPattern)) {
             isInsideSelection = false;
+            indexEnd = value.indexOf(line);
+            numStr = [for (var i = indexStart; i <= indexEnd; i++) i];
           } else {
             selectedLinesBuffer.writeln(line);
           }
         }
       }
 
-      return selectedLinesBuffer.toString();
+      return (selectedLinesBuffer.toString(), numStr);
     }
 
     emit(state.copyWith(
-        value1: getSelectedLines(value1, '${event.key}:', stopPattern1),
-        value2: getSelectedLines(value2, '${event.key}:', stopPattern2),
+        value1: getSelectedLines(value1, '${event.key}:', '$stopPattern1:'),
+        value2: getSelectedLines(value2, '${event.key}:', '$stopPattern2:'),
         key: event.key));
   }
 }
