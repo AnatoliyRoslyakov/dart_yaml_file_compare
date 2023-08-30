@@ -97,9 +97,12 @@ class ContentContainerFormat extends StatelessWidget {
                         ),
                       ),
                       Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Text(value.$1, style: const TextStyle(color: AppColors.mainText),),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Text(value.$1, style: const TextStyle(color: AppColors.mainText),),
+                          ),
                         ),
                       ),
                     ],
