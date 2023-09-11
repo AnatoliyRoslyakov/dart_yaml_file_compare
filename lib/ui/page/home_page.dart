@@ -44,14 +44,16 @@ class HomePage extends StatelessWidget {
                                         .read<FormatTextBloc>()
                                         .add(const SwitchFormatTextEvent());
 
-                                        context.read<UploadFileBloc>().add(const FormatUploadFileEvent());
+                                    context
+                                        .read<UploadFileBloc>()
+                                        .add(const FormatUploadFileEvent());
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(10),
                                         border: Border.all(
                                             color: AppColors.mainElement,
-                                            width: state.format? 4: 1),
+                                            width: state.format ? 4 : 1),
                                         color: AppColors.secondaryElement),
                                     width: screenSize.width * 0.2 - 5,
                                     height: 45,

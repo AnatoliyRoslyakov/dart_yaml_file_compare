@@ -57,14 +57,14 @@ class ValueBloc extends Bloc<ValueEvent, ValueState> {
       List<String> lines2 = str2.split('\n');
 
       for (var it in lines1) {
-        if (lines2.contains(it) && lines1.indexOf(it) == lines2.indexOf(it)) {
+        if (lines2.contains(it) || lines1.indexOf(it) == lines2.indexOf(it)) {
           colorList1.add(AppColors.trans);
         } else {
           colorList1.add(AppColors.orange);
         }
       }
       for (var it in lines2) {
-        if (lines1.indexOf(it) == lines2.indexOf(it)) {
+        if (lines1.contains(it) || lines1.indexOf(it) == lines2.indexOf(it)) {
           colorList2.add(AppColors.trans);
         } else {
           colorList2.add(AppColors.orange);
