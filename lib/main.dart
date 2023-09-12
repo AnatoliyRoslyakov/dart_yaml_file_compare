@@ -31,7 +31,8 @@ class MyApp extends StatelessWidget {
             ),
             BlocProvider<KeyListBloc>(
               create: (context) =>
-                  KeyListBloc()..add(const KeyListEvent.create('', '',)),
+                  KeyListBloc()
+                  // ..add(const KeyListEvent.create('', '',)),
             ),
 
             BlocProvider<ValueBloc>(
