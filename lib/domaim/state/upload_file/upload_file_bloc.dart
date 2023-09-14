@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:cross_file/cross_file.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -11,11 +14,11 @@ class UploadFileEvent with _$UploadFileEvent {
 
   const factory UploadFileEvent.init() = InitUploadFileEvent;
 
-  const factory UploadFileEvent.load1() = LoadUploadFileEvent1;
+  const factory UploadFileEvent.load1({XFile? file1}) = LoadUploadFileEvent1;
 
   const factory UploadFileEvent.init1() = InitUploadFileEvent1;
 
-  const factory UploadFileEvent.load2() = LoadUploadFileEvent2;
+  const factory UploadFileEvent.load2({XFile? file2}) = LoadUploadFileEvent2;
 
   const factory UploadFileEvent.init2() = InitUploadFileEvent2;
 
@@ -33,6 +36,8 @@ class UploadFileState with _$UploadFileState {
       required String fileName2,
       required String? file1,
       required String? file2,
+      required String? filePath1,
+      required String? filePath2,
       required bool success,
       required bool format}) = _UploadFileState;
 
@@ -40,9 +45,11 @@ class UploadFileState with _$UploadFileState {
       result1: UploadFileResult.empty(),
       fileName1: '',
       file1: '',
+      filePath1: '',
       result2: UploadFileResult.empty(),
       fileName2: '',
       file2: '',
+       filePath2: '',
       success: false,
       format: false);
 }
@@ -73,21 +80,43 @@ class UploadFileBloc extends Bloc<UploadFileEvent, UploadFileState> {
     on<SuccessUploadFileEvent>(_success);
     on<FormatUploadFileEvent>(_format);
   }
+   // разобраться с множественными проверками на null
   Future<void> _load1(
-      UploadFileEvent event, Emitter<UploadFileState> emit) async {
-    final result = await AppFilePicker.selectFile();
+      LoadUploadFileEvent1 event, Emitter<UploadFileState> emit) async {
+    if (event.file1 == null) {
+      final result = await AppFilePicker.selectFile();
 
-    if (result.$3 == null) {
+      if (result.$3 == null) {
+        emit(state.copyWith(result1: const UploadFileResult.failure()));
+        return;
+      }
+      emit(state.copyWith(result1: const UploadFileResult.loading()));
+
+      if (result.$1 != null) {
+        emit(state.copyWith(
+            result1: const UploadFileResult.success(),
+            fileName1: result.$2.toString(),
+            file1: result.$3,
+            filePath1: result.$4));
+        return;
+      } else {
+        emit(state.copyWith(result1: const UploadFileResult.failure()));
+      }
+    }
+    if (event.file1 == null) {
       emit(state.copyWith(result1: const UploadFileResult.failure()));
       return;
     }
     emit(state.copyWith(result1: const UploadFileResult.loading()));
 
-    if (result.$1 != null) {
+    if (event.file1 != null) {
+      File convertToFile(XFile xFile) => File(xFile.path);
+      String? file1 =  convertToFile(event.file1!).readAsStringSync();
       emit(state.copyWith(
           result1: const UploadFileResult.success(),
-          fileName1: result.$2.toString(),
-          file1: result.$3));
+          fileName1: event.file1!.name,
+          file1: file1,
+          filePath1: event.file1!.path));
       return;
     } else {
       emit(state.copyWith(result1: const UploadFileResult.failure()));
@@ -102,9 +131,10 @@ class UploadFileBloc extends Bloc<UploadFileEvent, UploadFileState> {
         file1: '',
         success: false));
   }
-
+ // разобраться с множественными проверками на null
   Future<void> _load2(
-      UploadFileEvent event, Emitter<UploadFileState> emit) async {
+      LoadUploadFileEvent2 event, Emitter<UploadFileState> emit) async {
+    if (event.file2 == null) {
     final result = await AppFilePicker.selectFile();
 
     if (result.$1 == null) {
@@ -117,11 +147,31 @@ class UploadFileBloc extends Bloc<UploadFileEvent, UploadFileState> {
       emit(state.copyWith(
           result2: const UploadFileResult.success(),
           fileName2: result.$2.toString(),
-          file2: result.$3));
+          file2: result.$3,
+          filePath2: result.$4));
       return;
     } else {
       emit(state.copyWith(result2: const UploadFileResult.failure()));
     }
+         }
+     if (event.file2 == null) {
+      emit(state.copyWith(result2: const UploadFileResult.failure()));   
+      return;
+    }
+    emit(state.copyWith(result2: const UploadFileResult.loading()));
+
+    if (event.file2 != null) {
+      File convertToFile(XFile xFile) => File(xFile.path);
+     String? file2 = convertToFile(event.file2!).readAsStringSync();
+      emit(state.copyWith(
+          result2: const UploadFileResult.success(),
+          fileName2: event.file2!.name,
+          file2: file2,
+          filePath2: event.file2!.path));
+      return;
+    } else {
+      emit(state.copyWith(result2: const UploadFileResult.failure()));
+    }    
   }
 
   Future<void> _init2(
@@ -149,7 +199,7 @@ class UploadFileBloc extends Bloc<UploadFileEvent, UploadFileState> {
     emit(state.copyWith(success: true));
   }
 
-    Future<void> _format(
+  Future<void> _format(
       UploadFileEvent event, Emitter<UploadFileState> emit) async {
     emit(state.copyWith(format: !state.format));
   }

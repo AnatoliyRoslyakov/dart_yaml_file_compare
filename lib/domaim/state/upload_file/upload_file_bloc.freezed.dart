@@ -19,9 +19,9 @@ mixin _$UploadFileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() load1,
+    required TResult Function(XFile? file1) load1,
     required TResult Function() init1,
-    required TResult Function() load2,
+    required TResult Function(XFile? file2) load2,
     required TResult Function() init2,
     required TResult Function() success,
     required TResult Function() format,
@@ -30,9 +30,9 @@ mixin _$UploadFileEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? load1,
+    TResult? Function(XFile? file1)? load1,
     TResult? Function()? init1,
-    TResult? Function()? load2,
+    TResult? Function(XFile? file2)? load2,
     TResult? Function()? init2,
     TResult? Function()? success,
     TResult? Function()? format,
@@ -41,9 +41,9 @@ mixin _$UploadFileEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? load1,
+    TResult Function(XFile? file1)? load1,
     TResult Function()? init1,
-    TResult Function()? load2,
+    TResult Function(XFile? file2)? load2,
     TResult Function()? init2,
     TResult Function()? success,
     TResult Function()? format,
@@ -143,9 +143,9 @@ class _$InitUploadFileEvent extends InitUploadFileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() load1,
+    required TResult Function(XFile? file1) load1,
     required TResult Function() init1,
-    required TResult Function() load2,
+    required TResult Function(XFile? file2) load2,
     required TResult Function() init2,
     required TResult Function() success,
     required TResult Function() format,
@@ -157,9 +157,9 @@ class _$InitUploadFileEvent extends InitUploadFileEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? load1,
+    TResult? Function(XFile? file1)? load1,
     TResult? Function()? init1,
-    TResult? Function()? load2,
+    TResult? Function(XFile? file2)? load2,
     TResult? Function()? init2,
     TResult? Function()? success,
     TResult? Function()? format,
@@ -171,9 +171,9 @@ class _$InitUploadFileEvent extends InitUploadFileEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? load1,
+    TResult Function(XFile? file1)? load1,
     TResult Function()? init1,
-    TResult Function()? load2,
+    TResult Function(XFile? file2)? load2,
     TResult Function()? init2,
     TResult Function()? success,
     TResult Function()? format,
@@ -242,6 +242,8 @@ abstract class _$$LoadUploadFileEvent1CopyWith<$Res> {
   factory _$$LoadUploadFileEvent1CopyWith(_$LoadUploadFileEvent1 value,
           $Res Function(_$LoadUploadFileEvent1) then) =
       __$$LoadUploadFileEvent1CopyWithImpl<$Res>;
+  @useResult
+  $Res call({XFile? file1});
 }
 
 /// @nodoc
@@ -251,69 +253,94 @@ class __$$LoadUploadFileEvent1CopyWithImpl<$Res>
   __$$LoadUploadFileEvent1CopyWithImpl(_$LoadUploadFileEvent1 _value,
       $Res Function(_$LoadUploadFileEvent1) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? file1 = freezed,
+  }) {
+    return _then(_$LoadUploadFileEvent1(
+      file1: freezed == file1
+          ? _value.file1
+          : file1 // ignore: cast_nullable_to_non_nullable
+              as XFile?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$LoadUploadFileEvent1 extends LoadUploadFileEvent1 {
-  const _$LoadUploadFileEvent1() : super._();
+  const _$LoadUploadFileEvent1({this.file1}) : super._();
+
+  @override
+  final XFile? file1;
 
   @override
   String toString() {
-    return 'UploadFileEvent.load1()';
+    return 'UploadFileEvent.load1(file1: $file1)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadUploadFileEvent1);
+        (other.runtimeType == runtimeType &&
+            other is _$LoadUploadFileEvent1 &&
+            (identical(other.file1, file1) || other.file1 == file1));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, file1);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadUploadFileEvent1CopyWith<_$LoadUploadFileEvent1> get copyWith =>
+      __$$LoadUploadFileEvent1CopyWithImpl<_$LoadUploadFileEvent1>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() load1,
+    required TResult Function(XFile? file1) load1,
     required TResult Function() init1,
-    required TResult Function() load2,
+    required TResult Function(XFile? file2) load2,
     required TResult Function() init2,
     required TResult Function() success,
     required TResult Function() format,
   }) {
-    return load1();
+    return load1(file1);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? load1,
+    TResult? Function(XFile? file1)? load1,
     TResult? Function()? init1,
-    TResult? Function()? load2,
+    TResult? Function(XFile? file2)? load2,
     TResult? Function()? init2,
     TResult? Function()? success,
     TResult? Function()? format,
   }) {
-    return load1?.call();
+    return load1?.call(file1);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? load1,
+    TResult Function(XFile? file1)? load1,
     TResult Function()? init1,
-    TResult Function()? load2,
+    TResult Function(XFile? file2)? load2,
     TResult Function()? init2,
     TResult Function()? success,
     TResult Function()? format,
     required TResult orElse(),
   }) {
     if (load1 != null) {
-      return load1();
+      return load1(file1);
     }
     return orElse();
   }
@@ -366,8 +393,14 @@ class _$LoadUploadFileEvent1 extends LoadUploadFileEvent1 {
 }
 
 abstract class LoadUploadFileEvent1 extends UploadFileEvent {
-  const factory LoadUploadFileEvent1() = _$LoadUploadFileEvent1;
+  const factory LoadUploadFileEvent1({final XFile? file1}) =
+      _$LoadUploadFileEvent1;
   const LoadUploadFileEvent1._() : super._();
+
+  XFile? get file1;
+  @JsonKey(ignore: true)
+  _$$LoadUploadFileEvent1CopyWith<_$LoadUploadFileEvent1> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -409,9 +442,9 @@ class _$InitUploadFileEvent1 extends InitUploadFileEvent1 {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() load1,
+    required TResult Function(XFile? file1) load1,
     required TResult Function() init1,
-    required TResult Function() load2,
+    required TResult Function(XFile? file2) load2,
     required TResult Function() init2,
     required TResult Function() success,
     required TResult Function() format,
@@ -423,9 +456,9 @@ class _$InitUploadFileEvent1 extends InitUploadFileEvent1 {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? load1,
+    TResult? Function(XFile? file1)? load1,
     TResult? Function()? init1,
-    TResult? Function()? load2,
+    TResult? Function(XFile? file2)? load2,
     TResult? Function()? init2,
     TResult? Function()? success,
     TResult? Function()? format,
@@ -437,9 +470,9 @@ class _$InitUploadFileEvent1 extends InitUploadFileEvent1 {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? load1,
+    TResult Function(XFile? file1)? load1,
     TResult Function()? init1,
-    TResult Function()? load2,
+    TResult Function(XFile? file2)? load2,
     TResult Function()? init2,
     TResult Function()? success,
     TResult Function()? format,
@@ -508,6 +541,8 @@ abstract class _$$LoadUploadFileEvent2CopyWith<$Res> {
   factory _$$LoadUploadFileEvent2CopyWith(_$LoadUploadFileEvent2 value,
           $Res Function(_$LoadUploadFileEvent2) then) =
       __$$LoadUploadFileEvent2CopyWithImpl<$Res>;
+  @useResult
+  $Res call({XFile? file2});
 }
 
 /// @nodoc
@@ -517,69 +552,94 @@ class __$$LoadUploadFileEvent2CopyWithImpl<$Res>
   __$$LoadUploadFileEvent2CopyWithImpl(_$LoadUploadFileEvent2 _value,
       $Res Function(_$LoadUploadFileEvent2) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? file2 = freezed,
+  }) {
+    return _then(_$LoadUploadFileEvent2(
+      file2: freezed == file2
+          ? _value.file2
+          : file2 // ignore: cast_nullable_to_non_nullable
+              as XFile?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$LoadUploadFileEvent2 extends LoadUploadFileEvent2 {
-  const _$LoadUploadFileEvent2() : super._();
+  const _$LoadUploadFileEvent2({this.file2}) : super._();
+
+  @override
+  final XFile? file2;
 
   @override
   String toString() {
-    return 'UploadFileEvent.load2()';
+    return 'UploadFileEvent.load2(file2: $file2)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadUploadFileEvent2);
+        (other.runtimeType == runtimeType &&
+            other is _$LoadUploadFileEvent2 &&
+            (identical(other.file2, file2) || other.file2 == file2));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, file2);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadUploadFileEvent2CopyWith<_$LoadUploadFileEvent2> get copyWith =>
+      __$$LoadUploadFileEvent2CopyWithImpl<_$LoadUploadFileEvent2>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() load1,
+    required TResult Function(XFile? file1) load1,
     required TResult Function() init1,
-    required TResult Function() load2,
+    required TResult Function(XFile? file2) load2,
     required TResult Function() init2,
     required TResult Function() success,
     required TResult Function() format,
   }) {
-    return load2();
+    return load2(file2);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? load1,
+    TResult? Function(XFile? file1)? load1,
     TResult? Function()? init1,
-    TResult? Function()? load2,
+    TResult? Function(XFile? file2)? load2,
     TResult? Function()? init2,
     TResult? Function()? success,
     TResult? Function()? format,
   }) {
-    return load2?.call();
+    return load2?.call(file2);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? load1,
+    TResult Function(XFile? file1)? load1,
     TResult Function()? init1,
-    TResult Function()? load2,
+    TResult Function(XFile? file2)? load2,
     TResult Function()? init2,
     TResult Function()? success,
     TResult Function()? format,
     required TResult orElse(),
   }) {
     if (load2 != null) {
-      return load2();
+      return load2(file2);
     }
     return orElse();
   }
@@ -632,8 +692,14 @@ class _$LoadUploadFileEvent2 extends LoadUploadFileEvent2 {
 }
 
 abstract class LoadUploadFileEvent2 extends UploadFileEvent {
-  const factory LoadUploadFileEvent2() = _$LoadUploadFileEvent2;
+  const factory LoadUploadFileEvent2({final XFile? file2}) =
+      _$LoadUploadFileEvent2;
   const LoadUploadFileEvent2._() : super._();
+
+  XFile? get file2;
+  @JsonKey(ignore: true)
+  _$$LoadUploadFileEvent2CopyWith<_$LoadUploadFileEvent2> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -675,9 +741,9 @@ class _$InitUploadFileEvent2 extends InitUploadFileEvent2 {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() load1,
+    required TResult Function(XFile? file1) load1,
     required TResult Function() init1,
-    required TResult Function() load2,
+    required TResult Function(XFile? file2) load2,
     required TResult Function() init2,
     required TResult Function() success,
     required TResult Function() format,
@@ -689,9 +755,9 @@ class _$InitUploadFileEvent2 extends InitUploadFileEvent2 {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? load1,
+    TResult? Function(XFile? file1)? load1,
     TResult? Function()? init1,
-    TResult? Function()? load2,
+    TResult? Function(XFile? file2)? load2,
     TResult? Function()? init2,
     TResult? Function()? success,
     TResult? Function()? format,
@@ -703,9 +769,9 @@ class _$InitUploadFileEvent2 extends InitUploadFileEvent2 {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? load1,
+    TResult Function(XFile? file1)? load1,
     TResult Function()? init1,
-    TResult Function()? load2,
+    TResult Function(XFile? file2)? load2,
     TResult Function()? init2,
     TResult Function()? success,
     TResult Function()? format,
@@ -808,9 +874,9 @@ class _$SuccessUploadFileEvent extends SuccessUploadFileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() load1,
+    required TResult Function(XFile? file1) load1,
     required TResult Function() init1,
-    required TResult Function() load2,
+    required TResult Function(XFile? file2) load2,
     required TResult Function() init2,
     required TResult Function() success,
     required TResult Function() format,
@@ -822,9 +888,9 @@ class _$SuccessUploadFileEvent extends SuccessUploadFileEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? load1,
+    TResult? Function(XFile? file1)? load1,
     TResult? Function()? init1,
-    TResult? Function()? load2,
+    TResult? Function(XFile? file2)? load2,
     TResult? Function()? init2,
     TResult? Function()? success,
     TResult? Function()? format,
@@ -836,9 +902,9 @@ class _$SuccessUploadFileEvent extends SuccessUploadFileEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? load1,
+    TResult Function(XFile? file1)? load1,
     TResult Function()? init1,
-    TResult Function()? load2,
+    TResult Function(XFile? file2)? load2,
     TResult Function()? init2,
     TResult Function()? success,
     TResult Function()? format,
@@ -941,9 +1007,9 @@ class _$FormatUploadFileEvent extends FormatUploadFileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() load1,
+    required TResult Function(XFile? file1) load1,
     required TResult Function() init1,
-    required TResult Function() load2,
+    required TResult Function(XFile? file2) load2,
     required TResult Function() init2,
     required TResult Function() success,
     required TResult Function() format,
@@ -955,9 +1021,9 @@ class _$FormatUploadFileEvent extends FormatUploadFileEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? load1,
+    TResult? Function(XFile? file1)? load1,
     TResult? Function()? init1,
-    TResult? Function()? load2,
+    TResult? Function(XFile? file2)? load2,
     TResult? Function()? init2,
     TResult? Function()? success,
     TResult? Function()? format,
@@ -969,9 +1035,9 @@ class _$FormatUploadFileEvent extends FormatUploadFileEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? load1,
+    TResult Function(XFile? file1)? load1,
     TResult Function()? init1,
-    TResult Function()? load2,
+    TResult Function(XFile? file2)? load2,
     TResult Function()? init2,
     TResult Function()? success,
     TResult Function()? format,
@@ -1043,6 +1109,8 @@ mixin _$UploadFileState {
   String get fileName2 => throw _privateConstructorUsedError;
   String? get file1 => throw _privateConstructorUsedError;
   String? get file2 => throw _privateConstructorUsedError;
+  String? get filePath1 => throw _privateConstructorUsedError;
+  String? get filePath2 => throw _privateConstructorUsedError;
   bool get success => throw _privateConstructorUsedError;
   bool get format => throw _privateConstructorUsedError;
 
@@ -1064,6 +1132,8 @@ abstract class $UploadFileStateCopyWith<$Res> {
       String fileName2,
       String? file1,
       String? file2,
+      String? filePath1,
+      String? filePath2,
       bool success,
       bool format});
 
@@ -1090,6 +1160,8 @@ class _$UploadFileStateCopyWithImpl<$Res, $Val extends UploadFileState>
     Object? fileName2 = null,
     Object? file1 = freezed,
     Object? file2 = freezed,
+    Object? filePath1 = freezed,
+    Object? filePath2 = freezed,
     Object? success = null,
     Object? format = null,
   }) {
@@ -1117,6 +1189,14 @@ class _$UploadFileStateCopyWithImpl<$Res, $Val extends UploadFileState>
       file2: freezed == file2
           ? _value.file2
           : file2 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      filePath1: freezed == filePath1
+          ? _value.filePath1
+          : filePath1 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      filePath2: freezed == filePath2
+          ? _value.filePath2
+          : filePath2 // ignore: cast_nullable_to_non_nullable
               as String?,
       success: null == success
           ? _value.success
@@ -1161,6 +1241,8 @@ abstract class _$$_UploadFileStateCopyWith<$Res>
       String fileName2,
       String? file1,
       String? file2,
+      String? filePath1,
+      String? filePath2,
       bool success,
       bool format});
 
@@ -1187,6 +1269,8 @@ class __$$_UploadFileStateCopyWithImpl<$Res>
     Object? fileName2 = null,
     Object? file1 = freezed,
     Object? file2 = freezed,
+    Object? filePath1 = freezed,
+    Object? filePath2 = freezed,
     Object? success = null,
     Object? format = null,
   }) {
@@ -1215,6 +1299,14 @@ class __$$_UploadFileStateCopyWithImpl<$Res>
           ? _value.file2
           : file2 // ignore: cast_nullable_to_non_nullable
               as String?,
+      filePath1: freezed == filePath1
+          ? _value.filePath1
+          : filePath1 // ignore: cast_nullable_to_non_nullable
+              as String?,
+      filePath2: freezed == filePath2
+          ? _value.filePath2
+          : filePath2 // ignore: cast_nullable_to_non_nullable
+              as String?,
       success: null == success
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
@@ -1237,6 +1329,8 @@ class _$_UploadFileState implements _UploadFileState {
       required this.fileName2,
       required this.file1,
       required this.file2,
+      required this.filePath1,
+      required this.filePath2,
       required this.success,
       required this.format});
 
@@ -1253,13 +1347,17 @@ class _$_UploadFileState implements _UploadFileState {
   @override
   final String? file2;
   @override
+  final String? filePath1;
+  @override
+  final String? filePath2;
+  @override
   final bool success;
   @override
   final bool format;
 
   @override
   String toString() {
-    return 'UploadFileState(result1: $result1, result2: $result2, fileName1: $fileName1, fileName2: $fileName2, file1: $file1, file2: $file2, success: $success, format: $format)';
+    return 'UploadFileState(result1: $result1, result2: $result2, fileName1: $fileName1, fileName2: $fileName2, file1: $file1, file2: $file2, filePath1: $filePath1, filePath2: $filePath2, success: $success, format: $format)';
   }
 
   @override
@@ -1275,13 +1373,17 @@ class _$_UploadFileState implements _UploadFileState {
                 other.fileName2 == fileName2) &&
             (identical(other.file1, file1) || other.file1 == file1) &&
             (identical(other.file2, file2) || other.file2 == file2) &&
+            (identical(other.filePath1, filePath1) ||
+                other.filePath1 == filePath1) &&
+            (identical(other.filePath2, filePath2) ||
+                other.filePath2 == filePath2) &&
             (identical(other.success, success) || other.success == success) &&
             (identical(other.format, format) || other.format == format));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, result1, result2, fileName1,
-      fileName2, file1, file2, success, format);
+      fileName2, file1, file2, filePath1, filePath2, success, format);
 
   @JsonKey(ignore: true)
   @override
@@ -1298,6 +1400,8 @@ abstract class _UploadFileState implements UploadFileState {
       required final String fileName2,
       required final String? file1,
       required final String? file2,
+      required final String? filePath1,
+      required final String? filePath2,
       required final bool success,
       required final bool format}) = _$_UploadFileState;
 
@@ -1313,6 +1417,10 @@ abstract class _UploadFileState implements UploadFileState {
   String? get file1;
   @override
   String? get file2;
+  @override
+  String? get filePath1;
+  @override
+  String? get filePath2;
   @override
   bool get success;
   @override

@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 
 class AppFilePickerMobile {
-  Future<(List?, String?, String?)> selectFile() async {
+  Future<(List?, String?, String?, String?)> selectFile() async {
     final result = await FilePicker.platform.pickFiles(
       type: FileType.any,
     );
@@ -13,9 +13,9 @@ class AppFilePickerMobile {
       final file = File(fileResult.path ?? '');
       final fileName = fileResult.name;
 
-      return (file.readAsLinesSync(), fileName, file.readAsStringSync());
+      return (file.readAsLinesSync(), fileName, file.readAsStringSync(), file.path);
     } else {
-      return (null, null, null);
+      return (null, null, null, null);
     }
   }
 }

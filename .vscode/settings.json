@@ -1,4 +1,5 @@
 {
     "cmake.sourceDirectory": "C:/ProjectFlutter/GitHubFlutter/dart_yaml_file_compare/windows",
-    "dart.flutterSdkPath": "C:\\flutter"
+    "dart.flutterSdkPath": "C:\\flutter",
+    "cmake.configureOnOpen": false
 }

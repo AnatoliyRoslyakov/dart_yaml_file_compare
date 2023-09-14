@@ -33,7 +33,7 @@ class KeyListBloc extends Bloc<KeyListEvent, KeyListState> {
   Future<void> _create(
       CreateKeyListEvent event, Emitter<KeyListState> emit) async {
     if (event.file1.isEmpty || event.file2.isEmpty) {
-      emit(state.copyWith(title: 'data clear', keyList: [], colorList: []));
+      emit(state.copyWith(title: 'Add a second file', keyList: [], colorList: []));
       return;
     }
 

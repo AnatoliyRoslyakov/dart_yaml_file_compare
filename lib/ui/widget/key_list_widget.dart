@@ -94,7 +94,7 @@ class KeyListWidget extends StatelessWidget {
               child: Text(
                 state.title,
                 style: TextStyle(
-                    color: state.title == 'data clear'
+                    color: state.title == 'Add a second file'
                         ? AppColors.mainElement
                         : Colors.red,
                     fontWeight: FontWeight.w300),

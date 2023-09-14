@@ -101,7 +101,7 @@ class ContentContainerFormat extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           child: Padding(
                             padding: const EdgeInsets.only(left: 10),
-                            child: Text(value.$1, style: const TextStyle(color: AppColors.mainText),),
+                            child: SelectableText(value.$1, style: const TextStyle(color: AppColors.mainText),),
                           ),
                         ),
                       ),
@@ -166,6 +166,7 @@ class ContentContainer extends StatelessWidget {
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
                             child: Row(
+                            
                               children: [
                                 const SizedBox(
                                   width: 5,

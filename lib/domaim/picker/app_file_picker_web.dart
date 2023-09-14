@@ -4,7 +4,7 @@ import 'package:file_picker/file_picker.dart';
 
 
 class AppFilePickerWeb {
-  Future<(Uint8List?, String?, String?)> selectFile() async {
+  Future<(Uint8List?, String?, String?, String?)> selectFile() async {
     final result = await FilePicker.platform.pickFiles(
       allowedExtensions: ['yaml'],
       type: FileType.custom,
@@ -12,9 +12,9 @@ class AppFilePickerWeb {
 
     if (result != null) {
       final file = result.files.single;
-      return (file.bytes, '', file.readStream.toString());
+      return (file.bytes, '', file.readStream.toString(), file.path);
     } else {
-      return (null, null, null);
+      return (null, null, null, null);
     }
   }
 }

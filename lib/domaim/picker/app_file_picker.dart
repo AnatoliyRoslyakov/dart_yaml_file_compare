@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 class AppFilePicker {
   AppFilePicker._();
 
-  static Future<(List?, String?, String?)> selectFile() {
+  static Future<(List?, String?, String?, String?)> selectFile() {
     if (kIsWeb) return AppFilePickerWeb().selectFile();
 
     return AppFilePickerMobile().selectFile();
