@@ -86,13 +86,13 @@ class ContentContainerFormat extends StatelessWidget {
                       ScrollConfiguration(
                         behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
                         child: SizedBox(
-                          width: 30,
+                          width: 35,
                           child: ListView.builder(shrinkWrap: true,
                            physics: const NeverScrollableScrollPhysics(),
                             itemCount: value.$2.length,
                             itemBuilder: (context, index){
                               return Text('${value.$2[index].toString()}:', style: const TextStyle(
-                                        color: AppColors.mainElement));
+                                        color: AppColors.mainElement,  fontFamily: 'Consolas'), textAlign: TextAlign.right);
                             }),
                         ),
                       ),
@@ -100,8 +100,8 @@ class ContentContainerFormat extends StatelessWidget {
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: SelectableText(value.$1, style: const TextStyle(color: AppColors.mainText),),
+                            padding: const EdgeInsets.only(left: 0),
+                            child: SelectableText(value.$1, style: const TextStyle(color: AppColors.mainText, fontFamily: 'Consolas'),),
                           ),
                         ),
                       ),

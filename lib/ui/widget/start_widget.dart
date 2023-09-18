@@ -89,7 +89,7 @@ class StartWidget extends StatelessWidget {
                         .read<KeyListBloc>()
                         .add(CreateKeyListEvent(state.file1!, state.file2!));
                   },
-                  child: const Icon(Icons.play_arrow)),
+                  child: const Text('GO')),
             )
           else
             SizedBox(
@@ -228,7 +228,7 @@ class DropDesctopWidget extends StatelessWidget {
          
           const SizedBox(height: 10,),
           SizedBox(
-            height: screenSize.height*0.75,
+            height: screenSize.height*0.70,
             width: screenSize.width*0.9,
             child: DottedBorder(
               borderType: BorderType.RRect,

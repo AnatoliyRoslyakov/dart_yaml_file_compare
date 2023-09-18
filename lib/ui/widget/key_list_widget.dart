@@ -70,12 +70,32 @@ class KeyListWidget extends StatelessWidget {
                                       alignment: Alignment.centerLeft,
                                       child: Padding(
                                         padding: const EdgeInsets.all(9.0),
-                                        child: Text(
-                                          state.keyList[index],
-                                          style: const TextStyle(
-                                              color: AppColors.mainText,
-                                              fontWeight: FontWeight.w500),
-                                          overflow: TextOverflow.ellipsis,
+                                        child: Row(
+                                          mainAxisAlignment:  MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                state.keyList[index],
+                                                style: const TextStyle(
+                                                    color: AppColors.mainText,
+                                                    fontWeight: FontWeight.w500),
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                            ),
+                                           if (state.newColorList[index] ==
+                                                    AppColors.mainElement) InkWell(child: const Icon(Icons.refresh, color: AppColors.mainElement,), onTap: () async{
+                                                                                         context.read<FormatTextBloc>().add(
+                                        FormatTextEvent.value(file1, file2,   //<------ сюда передать локально вызванный файл(ещё один эвент перед этими эвентами где будет вызываться файл 1 и 2 по ссылке, а ссылка будет браться из appPicker'a)
+                                            state.keyList[index]));
+
+                                    context.read<ValueBloc>().add(
+                                        ValueEvent.create(file1, file2,
+                                            state.keyList[index]));
+
+                                    context
+                                        .read<KeyListBloc>()
+                                        .add(KeyListEvent.press(index));
+                                                    },)],
                                         ),
                                       ),
                                     ),
