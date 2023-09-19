@@ -25,6 +25,8 @@ class UploadFileEvent with _$UploadFileEvent {
   const factory UploadFileEvent.success() = SuccessUploadFileEvent;
 
   const factory UploadFileEvent.format() = FormatUploadFileEvent;
+
+  const factory UploadFileEvent.update() = UpdateUploadFileEvent;
 }
 
 @freezed
@@ -49,7 +51,7 @@ class UploadFileState with _$UploadFileState {
       result2: UploadFileResult.empty(),
       fileName2: '',
       file2: '',
-       filePath2: '',
+      filePath2: '',
       success: false,
       format: false);
 }
@@ -79,6 +81,7 @@ class UploadFileBloc extends Bloc<UploadFileEvent, UploadFileState> {
     on<InitUploadFileEvent2>(_init2);
     on<SuccessUploadFileEvent>(_success);
     on<FormatUploadFileEvent>(_format);
+    on<UpdateUploadFileEvent>(_update);
   }
    // разобраться с множественными проверками на null
   Future<void> _load1(
@@ -202,5 +205,12 @@ class UploadFileBloc extends Bloc<UploadFileEvent, UploadFileState> {
   Future<void> _format(
       UploadFileEvent event, Emitter<UploadFileState> emit) async {
     emit(state.copyWith(format: !state.format));
+  }
+
+   Future<void> _update(
+  UploadFileEvent event, Emitter<UploadFileState> emit) async {
+  String file1 =   File(state.filePath1.toString()).readAsStringSync();
+  String file2 =   File(state.filePath2.toString()).readAsStringSync();
+    emit(state.copyWith(file1: file1, file2: file2));
   }
 }

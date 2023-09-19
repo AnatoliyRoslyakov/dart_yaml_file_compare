@@ -25,6 +25,7 @@ mixin _$UploadFileEvent {
     required TResult Function() init2,
     required TResult Function() success,
     required TResult Function() format,
+    required TResult Function() update,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +37,7 @@ mixin _$UploadFileEvent {
     TResult? Function()? init2,
     TResult? Function()? success,
     TResult? Function()? format,
+    TResult? Function()? update,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +49,7 @@ mixin _$UploadFileEvent {
     TResult Function()? init2,
     TResult Function()? success,
     TResult Function()? format,
+    TResult Function()? update,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +62,7 @@ mixin _$UploadFileEvent {
     required TResult Function(InitUploadFileEvent2 value) init2,
     required TResult Function(SuccessUploadFileEvent value) success,
     required TResult Function(FormatUploadFileEvent value) format,
+    required TResult Function(UpdateUploadFileEvent value) update,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +74,7 @@ mixin _$UploadFileEvent {
     TResult? Function(InitUploadFileEvent2 value)? init2,
     TResult? Function(SuccessUploadFileEvent value)? success,
     TResult? Function(FormatUploadFileEvent value)? format,
+    TResult? Function(UpdateUploadFileEvent value)? update,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +86,7 @@ mixin _$UploadFileEvent {
     TResult Function(InitUploadFileEvent2 value)? init2,
     TResult Function(SuccessUploadFileEvent value)? success,
     TResult Function(FormatUploadFileEvent value)? format,
+    TResult Function(UpdateUploadFileEvent value)? update,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -149,6 +155,7 @@ class _$InitUploadFileEvent extends InitUploadFileEvent {
     required TResult Function() init2,
     required TResult Function() success,
     required TResult Function() format,
+    required TResult Function() update,
   }) {
     return init();
   }
@@ -163,6 +170,7 @@ class _$InitUploadFileEvent extends InitUploadFileEvent {
     TResult? Function()? init2,
     TResult? Function()? success,
     TResult? Function()? format,
+    TResult? Function()? update,
   }) {
     return init?.call();
   }
@@ -177,6 +185,7 @@ class _$InitUploadFileEvent extends InitUploadFileEvent {
     TResult Function()? init2,
     TResult Function()? success,
     TResult Function()? format,
+    TResult Function()? update,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -195,6 +204,7 @@ class _$InitUploadFileEvent extends InitUploadFileEvent {
     required TResult Function(InitUploadFileEvent2 value) init2,
     required TResult Function(SuccessUploadFileEvent value) success,
     required TResult Function(FormatUploadFileEvent value) format,
+    required TResult Function(UpdateUploadFileEvent value) update,
   }) {
     return init(this);
   }
@@ -209,6 +219,7 @@ class _$InitUploadFileEvent extends InitUploadFileEvent {
     TResult? Function(InitUploadFileEvent2 value)? init2,
     TResult? Function(SuccessUploadFileEvent value)? success,
     TResult? Function(FormatUploadFileEvent value)? format,
+    TResult? Function(UpdateUploadFileEvent value)? update,
   }) {
     return init?.call(this);
   }
@@ -223,6 +234,7 @@ class _$InitUploadFileEvent extends InitUploadFileEvent {
     TResult Function(InitUploadFileEvent2 value)? init2,
     TResult Function(SuccessUploadFileEvent value)? success,
     TResult Function(FormatUploadFileEvent value)? format,
+    TResult Function(UpdateUploadFileEvent value)? update,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -309,6 +321,7 @@ class _$LoadUploadFileEvent1 extends LoadUploadFileEvent1 {
     required TResult Function() init2,
     required TResult Function() success,
     required TResult Function() format,
+    required TResult Function() update,
   }) {
     return load1(file1);
   }
@@ -323,6 +336,7 @@ class _$LoadUploadFileEvent1 extends LoadUploadFileEvent1 {
     TResult? Function()? init2,
     TResult? Function()? success,
     TResult? Function()? format,
+    TResult? Function()? update,
   }) {
     return load1?.call(file1);
   }
@@ -337,6 +351,7 @@ class _$LoadUploadFileEvent1 extends LoadUploadFileEvent1 {
     TResult Function()? init2,
     TResult Function()? success,
     TResult Function()? format,
+    TResult Function()? update,
     required TResult orElse(),
   }) {
     if (load1 != null) {
@@ -355,6 +370,7 @@ class _$LoadUploadFileEvent1 extends LoadUploadFileEvent1 {
     required TResult Function(InitUploadFileEvent2 value) init2,
     required TResult Function(SuccessUploadFileEvent value) success,
     required TResult Function(FormatUploadFileEvent value) format,
+    required TResult Function(UpdateUploadFileEvent value) update,
   }) {
     return load1(this);
   }
@@ -369,6 +385,7 @@ class _$LoadUploadFileEvent1 extends LoadUploadFileEvent1 {
     TResult? Function(InitUploadFileEvent2 value)? init2,
     TResult? Function(SuccessUploadFileEvent value)? success,
     TResult? Function(FormatUploadFileEvent value)? format,
+    TResult? Function(UpdateUploadFileEvent value)? update,
   }) {
     return load1?.call(this);
   }
@@ -383,6 +400,7 @@ class _$LoadUploadFileEvent1 extends LoadUploadFileEvent1 {
     TResult Function(InitUploadFileEvent2 value)? init2,
     TResult Function(SuccessUploadFileEvent value)? success,
     TResult Function(FormatUploadFileEvent value)? format,
+    TResult Function(UpdateUploadFileEvent value)? update,
     required TResult orElse(),
   }) {
     if (load1 != null) {
@@ -448,6 +466,7 @@ class _$InitUploadFileEvent1 extends InitUploadFileEvent1 {
     required TResult Function() init2,
     required TResult Function() success,
     required TResult Function() format,
+    required TResult Function() update,
   }) {
     return init1();
   }
@@ -462,6 +481,7 @@ class _$InitUploadFileEvent1 extends InitUploadFileEvent1 {
     TResult? Function()? init2,
     TResult? Function()? success,
     TResult? Function()? format,
+    TResult? Function()? update,
   }) {
     return init1?.call();
   }
@@ -476,6 +496,7 @@ class _$InitUploadFileEvent1 extends InitUploadFileEvent1 {
     TResult Function()? init2,
     TResult Function()? success,
     TResult Function()? format,
+    TResult Function()? update,
     required TResult orElse(),
   }) {
     if (init1 != null) {
@@ -494,6 +515,7 @@ class _$InitUploadFileEvent1 extends InitUploadFileEvent1 {
     required TResult Function(InitUploadFileEvent2 value) init2,
     required TResult Function(SuccessUploadFileEvent value) success,
     required TResult Function(FormatUploadFileEvent value) format,
+    required TResult Function(UpdateUploadFileEvent value) update,
   }) {
     return init1(this);
   }
@@ -508,6 +530,7 @@ class _$InitUploadFileEvent1 extends InitUploadFileEvent1 {
     TResult? Function(InitUploadFileEvent2 value)? init2,
     TResult? Function(SuccessUploadFileEvent value)? success,
     TResult? Function(FormatUploadFileEvent value)? format,
+    TResult? Function(UpdateUploadFileEvent value)? update,
   }) {
     return init1?.call(this);
   }
@@ -522,6 +545,7 @@ class _$InitUploadFileEvent1 extends InitUploadFileEvent1 {
     TResult Function(InitUploadFileEvent2 value)? init2,
     TResult Function(SuccessUploadFileEvent value)? success,
     TResult Function(FormatUploadFileEvent value)? format,
+    TResult Function(UpdateUploadFileEvent value)? update,
     required TResult orElse(),
   }) {
     if (init1 != null) {
@@ -608,6 +632,7 @@ class _$LoadUploadFileEvent2 extends LoadUploadFileEvent2 {
     required TResult Function() init2,
     required TResult Function() success,
     required TResult Function() format,
+    required TResult Function() update,
   }) {
     return load2(file2);
   }
@@ -622,6 +647,7 @@ class _$LoadUploadFileEvent2 extends LoadUploadFileEvent2 {
     TResult? Function()? init2,
     TResult? Function()? success,
     TResult? Function()? format,
+    TResult? Function()? update,
   }) {
     return load2?.call(file2);
   }
@@ -636,6 +662,7 @@ class _$LoadUploadFileEvent2 extends LoadUploadFileEvent2 {
     TResult Function()? init2,
     TResult Function()? success,
     TResult Function()? format,
+    TResult Function()? update,
     required TResult orElse(),
   }) {
     if (load2 != null) {
@@ -654,6 +681,7 @@ class _$LoadUploadFileEvent2 extends LoadUploadFileEvent2 {
     required TResult Function(InitUploadFileEvent2 value) init2,
     required TResult Function(SuccessUploadFileEvent value) success,
     required TResult Function(FormatUploadFileEvent value) format,
+    required TResult Function(UpdateUploadFileEvent value) update,
   }) {
     return load2(this);
   }
@@ -668,6 +696,7 @@ class _$LoadUploadFileEvent2 extends LoadUploadFileEvent2 {
     TResult? Function(InitUploadFileEvent2 value)? init2,
     TResult? Function(SuccessUploadFileEvent value)? success,
     TResult? Function(FormatUploadFileEvent value)? format,
+    TResult? Function(UpdateUploadFileEvent value)? update,
   }) {
     return load2?.call(this);
   }
@@ -682,6 +711,7 @@ class _$LoadUploadFileEvent2 extends LoadUploadFileEvent2 {
     TResult Function(InitUploadFileEvent2 value)? init2,
     TResult Function(SuccessUploadFileEvent value)? success,
     TResult Function(FormatUploadFileEvent value)? format,
+    TResult Function(UpdateUploadFileEvent value)? update,
     required TResult orElse(),
   }) {
     if (load2 != null) {
@@ -747,6 +777,7 @@ class _$InitUploadFileEvent2 extends InitUploadFileEvent2 {
     required TResult Function() init2,
     required TResult Function() success,
     required TResult Function() format,
+    required TResult Function() update,
   }) {
     return init2();
   }
@@ -761,6 +792,7 @@ class _$InitUploadFileEvent2 extends InitUploadFileEvent2 {
     TResult? Function()? init2,
     TResult? Function()? success,
     TResult? Function()? format,
+    TResult? Function()? update,
   }) {
     return init2?.call();
   }
@@ -775,6 +807,7 @@ class _$InitUploadFileEvent2 extends InitUploadFileEvent2 {
     TResult Function()? init2,
     TResult Function()? success,
     TResult Function()? format,
+    TResult Function()? update,
     required TResult orElse(),
   }) {
     if (init2 != null) {
@@ -793,6 +826,7 @@ class _$InitUploadFileEvent2 extends InitUploadFileEvent2 {
     required TResult Function(InitUploadFileEvent2 value) init2,
     required TResult Function(SuccessUploadFileEvent value) success,
     required TResult Function(FormatUploadFileEvent value) format,
+    required TResult Function(UpdateUploadFileEvent value) update,
   }) {
     return init2(this);
   }
@@ -807,6 +841,7 @@ class _$InitUploadFileEvent2 extends InitUploadFileEvent2 {
     TResult? Function(InitUploadFileEvent2 value)? init2,
     TResult? Function(SuccessUploadFileEvent value)? success,
     TResult? Function(FormatUploadFileEvent value)? format,
+    TResult? Function(UpdateUploadFileEvent value)? update,
   }) {
     return init2?.call(this);
   }
@@ -821,6 +856,7 @@ class _$InitUploadFileEvent2 extends InitUploadFileEvent2 {
     TResult Function(InitUploadFileEvent2 value)? init2,
     TResult Function(SuccessUploadFileEvent value)? success,
     TResult Function(FormatUploadFileEvent value)? format,
+    TResult Function(UpdateUploadFileEvent value)? update,
     required TResult orElse(),
   }) {
     if (init2 != null) {
@@ -880,6 +916,7 @@ class _$SuccessUploadFileEvent extends SuccessUploadFileEvent {
     required TResult Function() init2,
     required TResult Function() success,
     required TResult Function() format,
+    required TResult Function() update,
   }) {
     return success();
   }
@@ -894,6 +931,7 @@ class _$SuccessUploadFileEvent extends SuccessUploadFileEvent {
     TResult? Function()? init2,
     TResult? Function()? success,
     TResult? Function()? format,
+    TResult? Function()? update,
   }) {
     return success?.call();
   }
@@ -908,6 +946,7 @@ class _$SuccessUploadFileEvent extends SuccessUploadFileEvent {
     TResult Function()? init2,
     TResult Function()? success,
     TResult Function()? format,
+    TResult Function()? update,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -926,6 +965,7 @@ class _$SuccessUploadFileEvent extends SuccessUploadFileEvent {
     required TResult Function(InitUploadFileEvent2 value) init2,
     required TResult Function(SuccessUploadFileEvent value) success,
     required TResult Function(FormatUploadFileEvent value) format,
+    required TResult Function(UpdateUploadFileEvent value) update,
   }) {
     return success(this);
   }
@@ -940,6 +980,7 @@ class _$SuccessUploadFileEvent extends SuccessUploadFileEvent {
     TResult? Function(InitUploadFileEvent2 value)? init2,
     TResult? Function(SuccessUploadFileEvent value)? success,
     TResult? Function(FormatUploadFileEvent value)? format,
+    TResult? Function(UpdateUploadFileEvent value)? update,
   }) {
     return success?.call(this);
   }
@@ -954,6 +995,7 @@ class _$SuccessUploadFileEvent extends SuccessUploadFileEvent {
     TResult Function(InitUploadFileEvent2 value)? init2,
     TResult Function(SuccessUploadFileEvent value)? success,
     TResult Function(FormatUploadFileEvent value)? format,
+    TResult Function(UpdateUploadFileEvent value)? update,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1013,6 +1055,7 @@ class _$FormatUploadFileEvent extends FormatUploadFileEvent {
     required TResult Function() init2,
     required TResult Function() success,
     required TResult Function() format,
+    required TResult Function() update,
   }) {
     return format();
   }
@@ -1027,6 +1070,7 @@ class _$FormatUploadFileEvent extends FormatUploadFileEvent {
     TResult? Function()? init2,
     TResult? Function()? success,
     TResult? Function()? format,
+    TResult? Function()? update,
   }) {
     return format?.call();
   }
@@ -1041,6 +1085,7 @@ class _$FormatUploadFileEvent extends FormatUploadFileEvent {
     TResult Function()? init2,
     TResult Function()? success,
     TResult Function()? format,
+    TResult Function()? update,
     required TResult orElse(),
   }) {
     if (format != null) {
@@ -1059,6 +1104,7 @@ class _$FormatUploadFileEvent extends FormatUploadFileEvent {
     required TResult Function(InitUploadFileEvent2 value) init2,
     required TResult Function(SuccessUploadFileEvent value) success,
     required TResult Function(FormatUploadFileEvent value) format,
+    required TResult Function(UpdateUploadFileEvent value) update,
   }) {
     return format(this);
   }
@@ -1073,6 +1119,7 @@ class _$FormatUploadFileEvent extends FormatUploadFileEvent {
     TResult? Function(InitUploadFileEvent2 value)? init2,
     TResult? Function(SuccessUploadFileEvent value)? success,
     TResult? Function(FormatUploadFileEvent value)? format,
+    TResult? Function(UpdateUploadFileEvent value)? update,
   }) {
     return format?.call(this);
   }
@@ -1087,6 +1134,7 @@ class _$FormatUploadFileEvent extends FormatUploadFileEvent {
     TResult Function(InitUploadFileEvent2 value)? init2,
     TResult Function(SuccessUploadFileEvent value)? success,
     TResult Function(FormatUploadFileEvent value)? format,
+    TResult Function(UpdateUploadFileEvent value)? update,
     required TResult orElse(),
   }) {
     if (format != null) {
@@ -1099,6 +1147,145 @@ class _$FormatUploadFileEvent extends FormatUploadFileEvent {
 abstract class FormatUploadFileEvent extends UploadFileEvent {
   const factory FormatUploadFileEvent() = _$FormatUploadFileEvent;
   const FormatUploadFileEvent._() : super._();
+}
+
+/// @nodoc
+abstract class _$$UpdateUploadFileEventCopyWith<$Res> {
+  factory _$$UpdateUploadFileEventCopyWith(_$UpdateUploadFileEvent value,
+          $Res Function(_$UpdateUploadFileEvent) then) =
+      __$$UpdateUploadFileEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UpdateUploadFileEventCopyWithImpl<$Res>
+    extends _$UploadFileEventCopyWithImpl<$Res, _$UpdateUploadFileEvent>
+    implements _$$UpdateUploadFileEventCopyWith<$Res> {
+  __$$UpdateUploadFileEventCopyWithImpl(_$UpdateUploadFileEvent _value,
+      $Res Function(_$UpdateUploadFileEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UpdateUploadFileEvent extends UpdateUploadFileEvent {
+  const _$UpdateUploadFileEvent() : super._();
+
+  @override
+  String toString() {
+    return 'UploadFileEvent.update()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UpdateUploadFileEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(XFile? file1) load1,
+    required TResult Function() init1,
+    required TResult Function(XFile? file2) load2,
+    required TResult Function() init2,
+    required TResult Function() success,
+    required TResult Function() format,
+    required TResult Function() update,
+  }) {
+    return update();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(XFile? file1)? load1,
+    TResult? Function()? init1,
+    TResult? Function(XFile? file2)? load2,
+    TResult? Function()? init2,
+    TResult? Function()? success,
+    TResult? Function()? format,
+    TResult? Function()? update,
+  }) {
+    return update?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(XFile? file1)? load1,
+    TResult Function()? init1,
+    TResult Function(XFile? file2)? load2,
+    TResult Function()? init2,
+    TResult Function()? success,
+    TResult Function()? format,
+    TResult Function()? update,
+    required TResult orElse(),
+  }) {
+    if (update != null) {
+      return update();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitUploadFileEvent value) init,
+    required TResult Function(LoadUploadFileEvent1 value) load1,
+    required TResult Function(InitUploadFileEvent1 value) init1,
+    required TResult Function(LoadUploadFileEvent2 value) load2,
+    required TResult Function(InitUploadFileEvent2 value) init2,
+    required TResult Function(SuccessUploadFileEvent value) success,
+    required TResult Function(FormatUploadFileEvent value) format,
+    required TResult Function(UpdateUploadFileEvent value) update,
+  }) {
+    return update(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitUploadFileEvent value)? init,
+    TResult? Function(LoadUploadFileEvent1 value)? load1,
+    TResult? Function(InitUploadFileEvent1 value)? init1,
+    TResult? Function(LoadUploadFileEvent2 value)? load2,
+    TResult? Function(InitUploadFileEvent2 value)? init2,
+    TResult? Function(SuccessUploadFileEvent value)? success,
+    TResult? Function(FormatUploadFileEvent value)? format,
+    TResult? Function(UpdateUploadFileEvent value)? update,
+  }) {
+    return update?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitUploadFileEvent value)? init,
+    TResult Function(LoadUploadFileEvent1 value)? load1,
+    TResult Function(InitUploadFileEvent1 value)? init1,
+    TResult Function(LoadUploadFileEvent2 value)? load2,
+    TResult Function(InitUploadFileEvent2 value)? init2,
+    TResult Function(SuccessUploadFileEvent value)? success,
+    TResult Function(FormatUploadFileEvent value)? format,
+    TResult Function(UpdateUploadFileEvent value)? update,
+    required TResult orElse(),
+  }) {
+    if (update != null) {
+      return update(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateUploadFileEvent extends UploadFileEvent {
+  const factory UpdateUploadFileEvent() = _$UpdateUploadFileEvent;
+  const UpdateUploadFileEvent._() : super._();
 }
 
 /// @nodoc

@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    KeyListWidget(
+                    KeyListWidget( //<---обернуть в блок и обновить?
                       file1: state.file1!,
                       file2: state.file2!,
                     )

@@ -1,4 +1,5 @@
 import 'package:app_yaml_compare/domaim/state/generate_format_text/format_text_bloc.dart';
+import 'package:app_yaml_compare/domaim/state/upload_file/upload_file_bloc.dart';
 import 'package:app_yaml_compare/ui/widget/value_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -71,31 +72,59 @@ class KeyListWidget extends StatelessWidget {
                                       child: Padding(
                                         padding: const EdgeInsets.all(9.0),
                                         child: Row(
-                                          mainAxisAlignment:  MainAxisAlignment.spaceBetween,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
                                           children: [
                                             Expanded(
                                               child: Text(
                                                 state.keyList[index],
                                                 style: const TextStyle(
                                                     color: AppColors.mainText,
-                                                    fontWeight: FontWeight.w500),
+                                                    fontWeight:
+                                                        FontWeight.w500),
                                                 overflow: TextOverflow.ellipsis,
                                               ),
                                             ),
-                                           if (state.newColorList[index] ==
-                                                    AppColors.mainElement) InkWell(child: const Icon(Icons.refresh, color: AppColors.mainElement,), onTap: () async{
-                                                                                         context.read<FormatTextBloc>().add(
-                                        FormatTextEvent.value(file1, file2,   //<------ сюда передать локально вызванный файл(ещё один эвент перед этими эвентами где будет вызываться файл 1 и 2 по ссылке, а ссылка будет браться из appPicker'a)
-                                            state.keyList[index]));
+                                            if (state.newColorList[index] ==
+                                                AppColors.mainElement)
+                                              InkWell(
+                                                child: const Icon(
+                                                  Icons.refresh,
+                                                  color: AppColors.mainElement,
+                                                ),
+                                                onTap: () async {
+                                                  context
+                                                      .read<UploadFileBloc>()
+                                                      .add(const UploadFileEvent
+                                                          .update());
 
-                                    context.read<ValueBloc>().add(
-                                        ValueEvent.create(file1, file2,
-                                            state.keyList[index]));
+                                                  context
+                                                      .read<FormatTextBloc>()
+                                                      .add(
+                                                          FormatTextEvent.value(
+                                                              file1,
+                                                              file2,
+                                                              state.keyList[
+                                                                  index]));
 
-                                    context
-                                        .read<KeyListBloc>()
-                                        .add(KeyListEvent.press(index));
-                                                    },)],
+                                                  context.read<ValueBloc>().add(
+                                                      ValueEvent.create(
+                                                          file1,
+                                                          file2,
+                                                          state
+                                                              .keyList[index]));
+
+                                                  context
+                                                      .read<KeyListBloc>()
+                                                      .add(KeyListEvent.press(
+                                                          index));
+                                                  context
+                                                      .read<KeyListBloc>()
+                                                      .add(CreateKeyListEvent(
+                                                          file1, file2));
+                                                },
+                                              )
+                                          ],
                                         ),
                                       ),
                                     ),
@@ -106,7 +135,14 @@ class KeyListWidget extends StatelessWidget {
                           }),
                     ),
                   ),
-                  const ValueWidget(),
+                  BlocListener<UploadFileBloc, UploadFileState>(
+                    listener: (context, state) {
+                      context
+                          .read<KeyListBloc>()
+                          .add(CreateKeyListEvent(state.file1!, state.file2!));
+                    },
+                    child: const ValueWidget(),
+                  ),
                 ],
               ),
             )
