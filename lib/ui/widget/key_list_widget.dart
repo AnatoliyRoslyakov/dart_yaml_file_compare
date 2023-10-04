@@ -19,7 +19,8 @@ class KeyListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<KeyListBloc, KeyListState>(builder: (context, state) {
+    return BlocBuilder<KeyListBloc, KeyListState>(
+      builder: (context, state) {
       final Size screenSize = MediaQuery.of(context).size;
       final yourScrollController = ScrollController();
       return state.keyList.isNotEmpty
@@ -98,30 +99,32 @@ class KeyListWidget extends StatelessWidget {
                                                       .add(const UploadFileEvent
                                                           .update());
 
-                                                  context
-                                                      .read<FormatTextBloc>()
-                                                      .add(
-                                                          FormatTextEvent.value(
-                                                              file1,
-                                                              file2,
-                                                              state.keyList[
-                                                                  index]));
+                                                  
 
-                                                  context.read<ValueBloc>().add(
+                                                  context
+                                                      .read<KeyListBloc>()
+                                                      .add(CreateKeyListEvent(
+                                                          file1, file2));
+
+                                                                        context
+                                                      .read<KeyListBloc>()
+                                                      .add(KeyListEvent.press(
+                                                          index));
+                                                   
+context.read<ValueBloc>().add(
                                                       ValueEvent.create(
                                                           file1,
                                                           file2,
                                                           state
                                                               .keyList[index]));
-
-                                                  context
-                                                      .read<KeyListBloc>()
-                                                      .add(KeyListEvent.press(
-                                                          index));
-                                                  context
-                                                      .read<KeyListBloc>()
-                                                      .add(CreateKeyListEvent(
-                                                          file1, file2));
+                                                  // context
+                                                  //     .read<FormatTextBloc>()
+                                                  //     .add(
+                                                  //         FormatTextEvent.value(
+                                                  //             file1,
+                                                  //             file2,
+                                                  //             state.keyList[
+                                                  //                 index]));
                                                 },
                                               )
                                           ],
@@ -135,14 +138,9 @@ class KeyListWidget extends StatelessWidget {
                           }),
                     ),
                   ),
-                  BlocListener<UploadFileBloc, UploadFileState>(
-                    listener: (context, state) {
-                      context
-                          .read<KeyListBloc>()
-                          .add(CreateKeyListEvent(state.file1!, state.file2!));
-                    },
-                    child: const ValueWidget(),
-                  ),
+                
+                    const ValueWidget(),
+                
                 ],
               ),
             )

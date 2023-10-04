@@ -88,6 +88,7 @@ class KeyListBloc extends Bloc<KeyListEvent, KeyListState> {
           baseLIstColor.add(AppColors.red);
         }
       }
+      emit(const KeyListState.initial([], [], '', []));
       emit(
         state.copyWith(
             keyList: baseLIstKey,
@@ -102,5 +103,6 @@ class KeyListBloc extends Bloc<KeyListEvent, KeyListState> {
     List newListColor = List.from(state.colorList);
     newListColor[event.index] = AppColors.mainElement;
     emit(state.copyWith(newColorList: newListColor));
+    
   }
 }
