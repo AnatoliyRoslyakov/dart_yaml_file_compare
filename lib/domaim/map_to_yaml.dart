@@ -39,7 +39,7 @@ class YamlWriter {
       str += "${_indent(indent)}  ${_writeInternal(item, indent: indent+1)}\n";
     }
 
-    return str.split('point').join('- point');
+    return str.split('point').join('- point'); // <-----кастыль, но с ним и без него все ок, просто косметика 
   }
 
   /// Write a map to a YAML string.

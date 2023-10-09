@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:app_yaml_compare/domaim/state/generate_key_list/key_list_bloc.dart';
 import 'package:app_yaml_compare/domaim/state/upload_file/upload_file_bloc.dart';
 import 'package:app_yaml_compare/ui/theme/app_button.dart';
@@ -17,6 +19,8 @@ class StartWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     return Column(
       children: [
         Row(children: [
@@ -88,6 +92,8 @@ class StartWidget extends StatelessWidget {
                     context
                         .read<KeyListBloc>()
                         .add(CreateKeyListEvent(state.file1!, state.file2!));
+
+                      
                   },
                   child: const Text('GO')),
             )
@@ -210,26 +216,49 @@ class DropDesctopWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-         Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-           children: [
-             state.result1 == const UploadFileResult.success()?   Row(
-               children: [const Icon(Icons.keyboard_arrow_right,  color: AppColors.mainElement,),
-                 SelectableText(state.filePath1.toString(),style: const TextStyle(color: AppColors.mainText),),
-               ],
-             ) : const SizedBox(height: 20,),
-              state.result2 == const UploadFileResult.success()?   Row(
-                children: [const Icon(Icons.keyboard_arrow_right, color: AppColors.mainElement,),
-                  SelectableText(state.filePath2.toString(), style: const TextStyle(color: AppColors.mainText),),
-                ],
-              ) : const SizedBox(height: 20,),
-           ],
-         ),
-         
-          const SizedBox(height: 10,),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              state.result1 == const UploadFileResult.success()
+                  ? Row(
+                      children: [
+                        const Icon(
+                          Icons.keyboard_arrow_right,
+                          color: AppColors.mainElement,
+                        ),
+                        SelectableText(
+                          state.filePath1.toString(),
+                          style: const TextStyle(color: AppColors.mainText),
+                        ),
+                      ],
+                    )
+                  : const SizedBox(
+                      height: 20,
+                    ),
+              state.result2 == const UploadFileResult.success()
+                  ? Row(
+                      children: [
+                        const Icon(
+                          Icons.keyboard_arrow_right,
+                          color: AppColors.mainElement,
+                        ),
+                        SelectableText(
+                          state.filePath2.toString(),
+                          style: const TextStyle(color: AppColors.mainText),
+                        ),
+                      ],
+                    )
+                  : const SizedBox(
+                      height: 20,
+                    ),
+            ],
+          ),
+          const SizedBox(
+            height: 10,
+          ),
           SizedBox(
-            height: screenSize.height*0.70,
-            width: screenSize.width*0.9,
+            height: screenSize.height * 0.70,
+            width: screenSize.width * 0.9,
             child: DottedBorder(
               borderType: BorderType.RRect,
               radius: const Radius.circular(32),

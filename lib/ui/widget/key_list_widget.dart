@@ -1,5 +1,4 @@
 import 'package:app_yaml_compare/domaim/state/generate_format_text/format_text_bloc.dart';
-import 'package:app_yaml_compare/domaim/state/upload_file/upload_file_bloc.dart';
 import 'package:app_yaml_compare/ui/widget/value_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,10 +18,10 @@ class KeyListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<KeyListBloc, KeyListState>(
-      builder: (context, state) {
+    return BlocBuilder<KeyListBloc, KeyListState>(builder: (context, state) {
       final Size screenSize = MediaQuery.of(context).size;
       final yourScrollController = ScrollController();
+
       return state.keyList.isNotEmpty
           ? Expanded(
               child: Row(
@@ -86,47 +85,6 @@ class KeyListWidget extends StatelessWidget {
                                                 overflow: TextOverflow.ellipsis,
                                               ),
                                             ),
-                                            if (state.newColorList[index] ==
-                                                AppColors.mainElement)
-                                              InkWell(
-                                                child: const Icon(
-                                                  Icons.refresh,
-                                                  color: AppColors.mainElement,
-                                                ),
-                                                onTap: () async {
-                                                  context
-                                                      .read<UploadFileBloc>()
-                                                      .add(const UploadFileEvent
-                                                          .update());
-
-                                                  
-
-                                                  context
-                                                      .read<KeyListBloc>()
-                                                      .add(CreateKeyListEvent(
-                                                          file1, file2));
-
-                                                                        context
-                                                      .read<KeyListBloc>()
-                                                      .add(KeyListEvent.press(
-                                                          index));
-                                                   
-context.read<ValueBloc>().add(
-                                                      ValueEvent.create(
-                                                          file1,
-                                                          file2,
-                                                          state
-                                                              .keyList[index]));
-                                                  // context
-                                                  //     .read<FormatTextBloc>()
-                                                  //     .add(
-                                                  //         FormatTextEvent.value(
-                                                  //             file1,
-                                                  //             file2,
-                                                  //             state.keyList[
-                                                  //                 index]));
-                                                },
-                                              )
                                           ],
                                         ),
                                       ),
@@ -138,9 +96,7 @@ context.read<ValueBloc>().add(
                           }),
                     ),
                   ),
-                
-                    const ValueWidget(),
-                
+                  const ValueWidget(),
                 ],
               ),
             )

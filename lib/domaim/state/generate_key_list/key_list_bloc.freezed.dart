@@ -378,24 +378,25 @@ mixin _$KeyListState {
   List<dynamic> get colorList => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   List<dynamic> get newColorList => throw _privateConstructorUsedError;
+  int get index => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<dynamic> keyList, List<dynamic> colorList,
-            String title, List<dynamic> newColorList)
+            String title, List<dynamic> newColorList, int index)
         initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<dynamic> keyList, List<dynamic> colorList,
-            String title, List<dynamic> newColorList)?
+            String title, List<dynamic> newColorList, int index)?
         initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<dynamic> keyList, List<dynamic> colorList,
-            String title, List<dynamic> newColorList)?
+            String title, List<dynamic> newColorList, int index)?
         initial,
     required TResult orElse(),
   }) =>
@@ -432,7 +433,8 @@ abstract class $KeyListStateCopyWith<$Res> {
       {List<dynamic> keyList,
       List<dynamic> colorList,
       String title,
-      List<dynamic> newColorList});
+      List<dynamic> newColorList,
+      int index});
 }
 
 /// @nodoc
@@ -452,6 +454,7 @@ class _$KeyListStateCopyWithImpl<$Res, $Val extends KeyListState>
     Object? colorList = null,
     Object? title = null,
     Object? newColorList = null,
+    Object? index = null,
   }) {
     return _then(_value.copyWith(
       keyList: null == keyList
@@ -470,6 +473,10 @@ class _$KeyListStateCopyWithImpl<$Res, $Val extends KeyListState>
           ? _value.newColorList
           : newColorList // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -486,7 +493,8 @@ abstract class _$$InitialKeyListStateCopyWith<$Res>
       {List<dynamic> keyList,
       List<dynamic> colorList,
       String title,
-      List<dynamic> newColorList});
+      List<dynamic> newColorList,
+      int index});
 }
 
 /// @nodoc
@@ -504,6 +512,7 @@ class __$$InitialKeyListStateCopyWithImpl<$Res>
     Object? colorList = null,
     Object? title = null,
     Object? newColorList = null,
+    Object? index = null,
   }) {
     return _then(_$InitialKeyListState(
       null == keyList
@@ -522,6 +531,10 @@ class __$$InitialKeyListStateCopyWithImpl<$Res>
           ? _value._newColorList
           : newColorList // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -534,7 +547,8 @@ class _$InitialKeyListState extends InitialKeyListState
       final List<dynamic> keyList,
       final List<dynamic> colorList,
       this.title,
-      final List<dynamic> newColorList)
+      final List<dynamic> newColorList,
+      this.index)
       : _keyList = keyList,
         _colorList = colorList,
         _newColorList = newColorList,
@@ -567,8 +581,11 @@ class _$InitialKeyListState extends InitialKeyListState
   }
 
   @override
+  final int index;
+
+  @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'KeyListState.initial(keyList: $keyList, colorList: $colorList, title: $title, newColorList: $newColorList)';
+    return 'KeyListState.initial(keyList: $keyList, colorList: $colorList, title: $title, newColorList: $newColorList, index: $index)';
   }
 
   @override
@@ -579,7 +596,8 @@ class _$InitialKeyListState extends InitialKeyListState
       ..add(DiagnosticsProperty('keyList', keyList))
       ..add(DiagnosticsProperty('colorList', colorList))
       ..add(DiagnosticsProperty('title', title))
-      ..add(DiagnosticsProperty('newColorList', newColorList));
+      ..add(DiagnosticsProperty('newColorList', newColorList))
+      ..add(DiagnosticsProperty('index', index));
   }
 
   @override
@@ -592,7 +610,8 @@ class _$InitialKeyListState extends InitialKeyListState
                 .equals(other._colorList, _colorList) &&
             (identical(other.title, title) || other.title == title) &&
             const DeepCollectionEquality()
-                .equals(other._newColorList, _newColorList));
+                .equals(other._newColorList, _newColorList) &&
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
@@ -601,7 +620,8 @@ class _$InitialKeyListState extends InitialKeyListState
       const DeepCollectionEquality().hash(_keyList),
       const DeepCollectionEquality().hash(_colorList),
       title,
-      const DeepCollectionEquality().hash(_newColorList));
+      const DeepCollectionEquality().hash(_newColorList),
+      index);
 
   @JsonKey(ignore: true)
   @override
@@ -614,32 +634,32 @@ class _$InitialKeyListState extends InitialKeyListState
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<dynamic> keyList, List<dynamic> colorList,
-            String title, List<dynamic> newColorList)
+            String title, List<dynamic> newColorList, int index)
         initial,
   }) {
-    return initial(keyList, colorList, title, newColorList);
+    return initial(keyList, colorList, title, newColorList, index);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<dynamic> keyList, List<dynamic> colorList,
-            String title, List<dynamic> newColorList)?
+            String title, List<dynamic> newColorList, int index)?
         initial,
   }) {
-    return initial?.call(keyList, colorList, title, newColorList);
+    return initial?.call(keyList, colorList, title, newColorList, index);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<dynamic> keyList, List<dynamic> colorList,
-            String title, List<dynamic> newColorList)?
+            String title, List<dynamic> newColorList, int index)?
         initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(keyList, colorList, title, newColorList);
+      return initial(keyList, colorList, title, newColorList, index);
     }
     return orElse();
   }
@@ -678,7 +698,8 @@ abstract class InitialKeyListState extends KeyListState {
       final List<dynamic> keyList,
       final List<dynamic> colorList,
       final String title,
-      final List<dynamic> newColorList) = _$InitialKeyListState;
+      final List<dynamic> newColorList,
+      final int index) = _$InitialKeyListState;
   const InitialKeyListState._() : super._();
 
   @override
@@ -689,6 +710,8 @@ abstract class InitialKeyListState extends KeyListState {
   String get title;
   @override
   List<dynamic> get newColorList;
+  @override
+  int get index;
   @override
   @JsonKey(ignore: true)
   _$$InitialKeyListStateCopyWith<_$InitialKeyListState> get copyWith =>
