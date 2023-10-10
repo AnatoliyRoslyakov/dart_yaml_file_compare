@@ -97,69 +97,74 @@ class _CompareWidgetState extends State<CompareWidget> {
               const SizedBox(
                 width: 10,
               ),
-              InkWell(
-                onTap: () {
-                  var stateFile =
-                      BlocProvider.of<UploadFileBloc>(context).state;
-                  var stateList = BlocProvider.of<KeyListBloc>(context).state;
+              BlocListener<UploadFileBloc, UploadFileState>(
+                  listener: (context, state) {
+                    context
+                        .read<UploadFileBloc>()
+                        .add(const UploadFileEvent.update());
+                  },
+                  child: InkWell(
+                    onTap: () {
+                      var stateFile =
+                          BlocProvider.of<UploadFileBloc>(context).state;
+                      debugPrint(stateFile.file2?.substring(10, 74));
 
-                  context
-                      .read<UploadFileBloc>()
-                      .add(const UploadFileEvent.update());
+                      context.read<KeyListBloc>().add(CreateKeyListEvent(
+                          stateFile.file1!, stateFile.file2!));
 
-                  context.read<KeyListBloc>().add(
-                      CreateKeyListEvent(stateFile.file1!, stateFile.file2!));
+                      var stateList =
+                          BlocProvider.of<KeyListBloc>(context).state;
+                      debugPrint(stateFile.file2?.substring(0, 74));
+                      context
+                          .read<KeyListBloc>()
+                          .add(KeyListEvent.press(stateList.index));
 
-                  context
-                      .read<KeyListBloc>()
-                      .add(KeyListEvent.press(stateList.index));
-
-                  context.read<ValueBloc>().add(ValueEvent.create(
-                      stateFile.file1!,
-                      stateFile.file2!,
-                      stateList.keyList[stateList.index]));
-                  context.read<FormatTextBloc>().add(FormatTextEvent.value(
-                      stateFile.file1!,
-                      stateFile.file2!,
-                      stateList.keyList[stateList.index]));
-                },
-                child: BlocListener<UploadFileBloc, UploadFileState>(
-                    listener: (context, state) {},
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                              color: AppColors.mainElement, width: 1),
-                          color: widget.state.update
-                              ? AppColors.red
-                              : AppColors.secondaryElement),
-                      width: (widget.screenSize.width * 0.2 - 15) / 2,
-                      height: 45,
-                      child: const Padding(
-                        padding: EdgeInsets.all(9.0),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.refresh,
-                              color: AppColors.mainElement,
+                      context.read<ValueBloc>().add(ValueEvent.create(
+                          stateFile.file1!,
+                          stateFile.file2!,
+                          stateList.keyList[stateList.index]));
+                      context.read<FormatTextBloc>().add(FormatTextEvent.value(
+                          stateFile.file1!,
+                          stateFile.file2!,
+                          stateList.keyList[stateList.index]));
+                    },
+                    child: BlocListener<UploadFileBloc, UploadFileState>(
+                        listener: (context, state) {},
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                  color: AppColors.mainElement, width: 1),
+                              color: widget.state.update
+                                  ? AppColors.red
+                                  : AppColors.secondaryElement),
+                          width: (widget.screenSize.width * 0.2 - 15) / 2,
+                          height: 45,
+                          child: const Padding(
+                            padding: EdgeInsets.all(9.0),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.refresh,
+                                  color: AppColors.mainElement,
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    'Update',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        color: AppColors.mainText),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                )
+                              ],
                             ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Expanded(
-                              child: Text(
-                                'Update',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    color: AppColors.mainText),
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    )),
-              ),
+                          ),
+                        )),
+                  ))
             ],
           ),
         ),
