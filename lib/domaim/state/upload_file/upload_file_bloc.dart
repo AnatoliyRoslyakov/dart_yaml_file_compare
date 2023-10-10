@@ -28,7 +28,7 @@ class UploadFileEvent with _$UploadFileEvent {
 
   const factory UploadFileEvent.update() = UpdateUploadFileEvent;
 
-  const factory UploadFileEvent.metaUpdate() = MetaUpdateUploadFileEvent;
+  const factory UploadFileEvent.metaUpdate({bool? update}) = MetaUpdateUploadFileEvent;
 }
 
 @freezed
@@ -213,7 +213,7 @@ class UploadFileBloc extends Bloc<UploadFileEvent, UploadFileState> {
   }
 
    Future<void> _update(
-  UploadFileEvent event, Emitter<UploadFileState> emit) async {
+  UpdateUploadFileEvent event, Emitter<UploadFileState> emit) async {
   String file1 =   File(state.filePath1.toString()).readAsStringSync();
   String file2 =   File(state.filePath2.toString()).readAsStringSync();
   
@@ -221,7 +221,7 @@ class UploadFileBloc extends Bloc<UploadFileEvent, UploadFileState> {
   }
 
     Future<void> _metaUpdate(
-  UploadFileEvent event, Emitter<UploadFileState> emit) async {
+  MetaUpdateUploadFileEvent event, Emitter<UploadFileState> emit) async {
 
     
   String file1 =   File(state.filePath1.toString()).readAsStringSync();
@@ -232,7 +232,7 @@ if(file1 != state.file1 || file2 != state.file2){
     emit(state.copyWith(update: true));
      return;
   }
-  emit(state.copyWith(update: false)); 
+  emit(state.copyWith(update: event.update!)); 
  
   } 
 }

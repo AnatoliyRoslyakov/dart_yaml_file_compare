@@ -26,7 +26,7 @@ mixin _$UploadFileEvent {
     required TResult Function() success,
     required TResult Function() format,
     required TResult Function() update,
-    required TResult Function() metaUpdate,
+    required TResult Function(bool? update) metaUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,7 +39,7 @@ mixin _$UploadFileEvent {
     TResult? Function()? success,
     TResult? Function()? format,
     TResult? Function()? update,
-    TResult? Function()? metaUpdate,
+    TResult? Function(bool? update)? metaUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,7 +52,7 @@ mixin _$UploadFileEvent {
     TResult Function()? success,
     TResult Function()? format,
     TResult Function()? update,
-    TResult Function()? metaUpdate,
+    TResult Function(bool? update)? metaUpdate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -162,7 +162,7 @@ class _$InitUploadFileEvent extends InitUploadFileEvent {
     required TResult Function() success,
     required TResult Function() format,
     required TResult Function() update,
-    required TResult Function() metaUpdate,
+    required TResult Function(bool? update) metaUpdate,
   }) {
     return init();
   }
@@ -178,7 +178,7 @@ class _$InitUploadFileEvent extends InitUploadFileEvent {
     TResult? Function()? success,
     TResult? Function()? format,
     TResult? Function()? update,
-    TResult? Function()? metaUpdate,
+    TResult? Function(bool? update)? metaUpdate,
   }) {
     return init?.call();
   }
@@ -194,7 +194,7 @@ class _$InitUploadFileEvent extends InitUploadFileEvent {
     TResult Function()? success,
     TResult Function()? format,
     TResult Function()? update,
-    TResult Function()? metaUpdate,
+    TResult Function(bool? update)? metaUpdate,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -334,7 +334,7 @@ class _$LoadUploadFileEvent1 extends LoadUploadFileEvent1 {
     required TResult Function() success,
     required TResult Function() format,
     required TResult Function() update,
-    required TResult Function() metaUpdate,
+    required TResult Function(bool? update) metaUpdate,
   }) {
     return load1(file1);
   }
@@ -350,7 +350,7 @@ class _$LoadUploadFileEvent1 extends LoadUploadFileEvent1 {
     TResult? Function()? success,
     TResult? Function()? format,
     TResult? Function()? update,
-    TResult? Function()? metaUpdate,
+    TResult? Function(bool? update)? metaUpdate,
   }) {
     return load1?.call(file1);
   }
@@ -366,7 +366,7 @@ class _$LoadUploadFileEvent1 extends LoadUploadFileEvent1 {
     TResult Function()? success,
     TResult Function()? format,
     TResult Function()? update,
-    TResult Function()? metaUpdate,
+    TResult Function(bool? update)? metaUpdate,
     required TResult orElse(),
   }) {
     if (load1 != null) {
@@ -485,7 +485,7 @@ class _$InitUploadFileEvent1 extends InitUploadFileEvent1 {
     required TResult Function() success,
     required TResult Function() format,
     required TResult Function() update,
-    required TResult Function() metaUpdate,
+    required TResult Function(bool? update) metaUpdate,
   }) {
     return init1();
   }
@@ -501,7 +501,7 @@ class _$InitUploadFileEvent1 extends InitUploadFileEvent1 {
     TResult? Function()? success,
     TResult? Function()? format,
     TResult? Function()? update,
-    TResult? Function()? metaUpdate,
+    TResult? Function(bool? update)? metaUpdate,
   }) {
     return init1?.call();
   }
@@ -517,7 +517,7 @@ class _$InitUploadFileEvent1 extends InitUploadFileEvent1 {
     TResult Function()? success,
     TResult Function()? format,
     TResult Function()? update,
-    TResult Function()? metaUpdate,
+    TResult Function(bool? update)? metaUpdate,
     required TResult orElse(),
   }) {
     if (init1 != null) {
@@ -657,7 +657,7 @@ class _$LoadUploadFileEvent2 extends LoadUploadFileEvent2 {
     required TResult Function() success,
     required TResult Function() format,
     required TResult Function() update,
-    required TResult Function() metaUpdate,
+    required TResult Function(bool? update) metaUpdate,
   }) {
     return load2(file2);
   }
@@ -673,7 +673,7 @@ class _$LoadUploadFileEvent2 extends LoadUploadFileEvent2 {
     TResult? Function()? success,
     TResult? Function()? format,
     TResult? Function()? update,
-    TResult? Function()? metaUpdate,
+    TResult? Function(bool? update)? metaUpdate,
   }) {
     return load2?.call(file2);
   }
@@ -689,7 +689,7 @@ class _$LoadUploadFileEvent2 extends LoadUploadFileEvent2 {
     TResult Function()? success,
     TResult Function()? format,
     TResult Function()? update,
-    TResult Function()? metaUpdate,
+    TResult Function(bool? update)? metaUpdate,
     required TResult orElse(),
   }) {
     if (load2 != null) {
@@ -808,7 +808,7 @@ class _$InitUploadFileEvent2 extends InitUploadFileEvent2 {
     required TResult Function() success,
     required TResult Function() format,
     required TResult Function() update,
-    required TResult Function() metaUpdate,
+    required TResult Function(bool? update) metaUpdate,
   }) {
     return init2();
   }
@@ -824,7 +824,7 @@ class _$InitUploadFileEvent2 extends InitUploadFileEvent2 {
     TResult? Function()? success,
     TResult? Function()? format,
     TResult? Function()? update,
-    TResult? Function()? metaUpdate,
+    TResult? Function(bool? update)? metaUpdate,
   }) {
     return init2?.call();
   }
@@ -840,7 +840,7 @@ class _$InitUploadFileEvent2 extends InitUploadFileEvent2 {
     TResult Function()? success,
     TResult Function()? format,
     TResult Function()? update,
-    TResult Function()? metaUpdate,
+    TResult Function(bool? update)? metaUpdate,
     required TResult orElse(),
   }) {
     if (init2 != null) {
@@ -953,7 +953,7 @@ class _$SuccessUploadFileEvent extends SuccessUploadFileEvent {
     required TResult Function() success,
     required TResult Function() format,
     required TResult Function() update,
-    required TResult Function() metaUpdate,
+    required TResult Function(bool? update) metaUpdate,
   }) {
     return success();
   }
@@ -969,7 +969,7 @@ class _$SuccessUploadFileEvent extends SuccessUploadFileEvent {
     TResult? Function()? success,
     TResult? Function()? format,
     TResult? Function()? update,
-    TResult? Function()? metaUpdate,
+    TResult? Function(bool? update)? metaUpdate,
   }) {
     return success?.call();
   }
@@ -985,7 +985,7 @@ class _$SuccessUploadFileEvent extends SuccessUploadFileEvent {
     TResult Function()? success,
     TResult Function()? format,
     TResult Function()? update,
-    TResult Function()? metaUpdate,
+    TResult Function(bool? update)? metaUpdate,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1098,7 +1098,7 @@ class _$FormatUploadFileEvent extends FormatUploadFileEvent {
     required TResult Function() success,
     required TResult Function() format,
     required TResult Function() update,
-    required TResult Function() metaUpdate,
+    required TResult Function(bool? update) metaUpdate,
   }) {
     return format();
   }
@@ -1114,7 +1114,7 @@ class _$FormatUploadFileEvent extends FormatUploadFileEvent {
     TResult? Function()? success,
     TResult? Function()? format,
     TResult? Function()? update,
-    TResult? Function()? metaUpdate,
+    TResult? Function(bool? update)? metaUpdate,
   }) {
     return format?.call();
   }
@@ -1130,7 +1130,7 @@ class _$FormatUploadFileEvent extends FormatUploadFileEvent {
     TResult Function()? success,
     TResult Function()? format,
     TResult Function()? update,
-    TResult Function()? metaUpdate,
+    TResult Function(bool? update)? metaUpdate,
     required TResult orElse(),
   }) {
     if (format != null) {
@@ -1243,7 +1243,7 @@ class _$UpdateUploadFileEvent extends UpdateUploadFileEvent {
     required TResult Function() success,
     required TResult Function() format,
     required TResult Function() update,
-    required TResult Function() metaUpdate,
+    required TResult Function(bool? update) metaUpdate,
   }) {
     return update();
   }
@@ -1259,7 +1259,7 @@ class _$UpdateUploadFileEvent extends UpdateUploadFileEvent {
     TResult? Function()? success,
     TResult? Function()? format,
     TResult? Function()? update,
-    TResult? Function()? metaUpdate,
+    TResult? Function(bool? update)? metaUpdate,
   }) {
     return update?.call();
   }
@@ -1275,7 +1275,7 @@ class _$UpdateUploadFileEvent extends UpdateUploadFileEvent {
     TResult Function()? success,
     TResult Function()? format,
     TResult Function()? update,
-    TResult Function()? metaUpdate,
+    TResult Function(bool? update)? metaUpdate,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -1348,6 +1348,8 @@ abstract class _$$MetaUpdateUploadFileEventCopyWith<$Res> {
           _$MetaUpdateUploadFileEvent value,
           $Res Function(_$MetaUpdateUploadFileEvent) then) =
       __$$MetaUpdateUploadFileEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool? update});
 }
 
 /// @nodoc
@@ -1357,27 +1359,51 @@ class __$$MetaUpdateUploadFileEventCopyWithImpl<$Res>
   __$$MetaUpdateUploadFileEventCopyWithImpl(_$MetaUpdateUploadFileEvent _value,
       $Res Function(_$MetaUpdateUploadFileEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? update = freezed,
+  }) {
+    return _then(_$MetaUpdateUploadFileEvent(
+      update: freezed == update
+          ? _value.update
+          : update // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$MetaUpdateUploadFileEvent extends MetaUpdateUploadFileEvent {
-  const _$MetaUpdateUploadFileEvent() : super._();
+  const _$MetaUpdateUploadFileEvent({this.update}) : super._();
+
+  @override
+  final bool? update;
 
   @override
   String toString() {
-    return 'UploadFileEvent.metaUpdate()';
+    return 'UploadFileEvent.metaUpdate(update: $update)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MetaUpdateUploadFileEvent);
+            other is _$MetaUpdateUploadFileEvent &&
+            (identical(other.update, update) || other.update == update));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, update);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MetaUpdateUploadFileEventCopyWith<_$MetaUpdateUploadFileEvent>
+      get copyWith => __$$MetaUpdateUploadFileEventCopyWithImpl<
+          _$MetaUpdateUploadFileEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1390,9 +1416,9 @@ class _$MetaUpdateUploadFileEvent extends MetaUpdateUploadFileEvent {
     required TResult Function() success,
     required TResult Function() format,
     required TResult Function() update,
-    required TResult Function() metaUpdate,
+    required TResult Function(bool? update) metaUpdate,
   }) {
-    return metaUpdate();
+    return metaUpdate(this.update);
   }
 
   @override
@@ -1406,9 +1432,9 @@ class _$MetaUpdateUploadFileEvent extends MetaUpdateUploadFileEvent {
     TResult? Function()? success,
     TResult? Function()? format,
     TResult? Function()? update,
-    TResult? Function()? metaUpdate,
+    TResult? Function(bool? update)? metaUpdate,
   }) {
-    return metaUpdate?.call();
+    return metaUpdate?.call(this.update);
   }
 
   @override
@@ -1422,11 +1448,11 @@ class _$MetaUpdateUploadFileEvent extends MetaUpdateUploadFileEvent {
     TResult Function()? success,
     TResult Function()? format,
     TResult Function()? update,
-    TResult Function()? metaUpdate,
+    TResult Function(bool? update)? metaUpdate,
     required TResult orElse(),
   }) {
     if (metaUpdate != null) {
-      return metaUpdate();
+      return metaUpdate(this.update);
     }
     return orElse();
   }
@@ -1485,8 +1511,14 @@ class _$MetaUpdateUploadFileEvent extends MetaUpdateUploadFileEvent {
 }
 
 abstract class MetaUpdateUploadFileEvent extends UploadFileEvent {
-  const factory MetaUpdateUploadFileEvent() = _$MetaUpdateUploadFileEvent;
+  const factory MetaUpdateUploadFileEvent({final bool? update}) =
+      _$MetaUpdateUploadFileEvent;
   const MetaUpdateUploadFileEvent._() : super._();
+
+  bool? get update;
+  @JsonKey(ignore: true)
+  _$$MetaUpdateUploadFileEventCopyWith<_$MetaUpdateUploadFileEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

@@ -98,23 +98,27 @@ class _CompareWidgetState extends State<CompareWidget> {
                 width: 10,
               ),
               BlocListener<UploadFileBloc, UploadFileState>(
+                
                   listener: (context, state) {
-                    context
+                                          context
                         .read<UploadFileBloc>()
                         .add(const UploadFileEvent.update());
+                       
                   },
                   child: InkWell(
                     onTap: () {
+
+
+                      
                       var stateFile =
                           BlocProvider.of<UploadFileBloc>(context).state;
-                      debugPrint(stateFile.file2?.substring(10, 74));
 
                       context.read<KeyListBloc>().add(CreateKeyListEvent(
                           stateFile.file1!, stateFile.file2!));
 
                       var stateList =
                           BlocProvider.of<KeyListBloc>(context).state;
-                      debugPrint(stateFile.file2?.substring(0, 74));
+                      
                       context
                           .read<KeyListBloc>()
                           .add(KeyListEvent.press(stateList.index));
@@ -127,10 +131,10 @@ class _CompareWidgetState extends State<CompareWidget> {
                           stateFile.file1!,
                           stateFile.file2!,
                           stateList.keyList[stateList.index]));
+
+                          context.read<UploadFileBloc>().add(const UploadFileEvent.metaUpdate(update: false));
                     },
-                    child: BlocListener<UploadFileBloc, UploadFileState>(
-                        listener: (context, state) {},
-                        child: Container(
+                    child: Container(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               border: Border.all(
@@ -164,7 +168,7 @@ class _CompareWidgetState extends State<CompareWidget> {
                             ),
                           ),
                         )),
-                  ))
+                  )
             ],
           ),
         ),
